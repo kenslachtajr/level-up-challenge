@@ -1,5 +1,8 @@
 <div class="wrapper">
-  <div class="list-grid"><workspace-todo-list></workspace-todo-list></div>
+  <div class="list-grid">
+    <workspace-todo-list [todos]="todos$ | async">
+    </workspace-todo-list>
+  </div>
   <div class="details-grid">
     <workspace-todo-details></workspace-todo-details>
   </div>
