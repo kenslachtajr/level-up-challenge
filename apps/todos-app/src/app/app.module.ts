@@ -12,15 +12,18 @@ import { TodoComponent } from './todo/todo.component';
 import { TodoListComponent } from './todo/todo-list/todo-list.component';
 import { TodoDetailsComponent } from './todo/todo-details/todo-details.component';
 import { LoginComponent } from './login/login.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
-    BrowserModule, 
+    BrowserModule,
+    FormsModule,
     CoreDataModule,
     MaterialModule,
-    UiToolbarModule, 
+    UiToolbarModule,
     UiLoginModule,
-    RoutingModule],
+    RoutingModule
+  ],
   declarations: [
     AppComponent,
     TodoComponent,

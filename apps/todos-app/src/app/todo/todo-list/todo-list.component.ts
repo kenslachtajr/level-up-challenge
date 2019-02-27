@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Todo } from '@workspace/core-data';
 
 @Component({
@@ -7,5 +7,7 @@ import { Todo } from '@workspace/core-data';
   styleUrls: ['./todo-list.component.scss']
 })
 export class TodoListComponent {
-@Input() todos:Todo[];
+  @Input() todos: Todo[];
+  @Output() selected = new EventEmitter();
+  @Output() deleted = new EventEmitter();
 }

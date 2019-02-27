@@ -8,7 +8,7 @@ import { Todo, TodoService } from '@workspace/core-data';
   styleUrls: ['./todo.component.scss']
 })
 export class TodoComponent implements OnInit {
-  todo$: Observable<Todo>;
+  todo: Todo;
   todos$: Observable<Todo[]>;
 
   constructor(private todoService: TodoService) {}
@@ -17,7 +17,30 @@ export class TodoComponent implements OnInit {
     this.getTodos();
   }
 
+  selectTodo(todo: Todo) {
+    this.todo = todo;
+    console.log(todo);
+  }
+
   getTodos() {
     this.todos$ = this.todoService.get();
+  }
+
+  deleteTodo(todoId: number) {
+    this.todoService.delete(todoId).subscribe(res => {
+      this.reset();
+      this.getTodos();
+    });
+  }
+
+  reset() {
+    const emptyTodo: Todo = {
+      id: null,
+      title: '',
+      description: '',
+      urgent: false,
+      completed: false
+    };
+    this.selectTodo(emptyTodo);
   }
 }

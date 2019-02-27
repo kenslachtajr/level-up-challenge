@@ -33,6 +33,6 @@ export class TodoService {
   }
 
   private getForUrlId(id: number) {
-    return `${this.getForUrl}/${id}`;
+    return `${this.getForUrl()}/${id}`;
   }
 }
