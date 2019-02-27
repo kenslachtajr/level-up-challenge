@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { CoreDataModule } from '@workspace/core-data';
+import { MaterialModule } from '@workspace/material';
 import { RoutingModule } from './routing.module';
 
 import { AppComponent } from './app.component';
@@ -13,7 +14,8 @@ import { LoginComponent } from './login/login.component';
 @NgModule({
   imports: [
     BrowserModule, 
-    CoreDataModule, 
+    CoreDataModule,
+    MaterialModule, 
     RoutingModule],
   declarations: [
     AppComponent,
