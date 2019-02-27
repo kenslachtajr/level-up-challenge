@@ -26,6 +26,26 @@ export class TodoComponent implements OnInit {
     this.todos$ = this.todoService.get();
   }
 
+  saveTodo(todo: Todo) {
+    todo.id ? this.updateTodo(todo) : this.createTodo(todo);
+  }
+
+  createTodo(todo: Todo) {
+    this.todoService.create(todo)
+    .subscribe(res => {
+      this.reset();
+      this.getTodos();
+    })
+  }
+
+  updateTodo(todo: Todo) {
+    this.todoService.update(todo)
+    .subscribe(res => {
+      this.reset();
+      this.getTodos();
+    })
+  }
+
   deleteTodo(todoId: number) {
     this.todoService.delete(todoId).subscribe(res => {
       this.reset();

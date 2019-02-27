@@ -13,4 +13,5 @@ export class TodoDetailsComponent {
     this.currentTodo = Object.assign({}, value);
   }
   @Output() cancelled = new EventEmitter();
+  @Output() saved = new EventEmitter();
 }

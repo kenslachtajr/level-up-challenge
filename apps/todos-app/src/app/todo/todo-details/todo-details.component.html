@@ -2,7 +2,7 @@
   <mat-card-header>
     <mat-card-title>Create Todo</mat-card-title>
   </mat-card-header>
-  <form>
+  <form (submit)="saved.emit(currentTodo)">
     <mat-card-content>
       <mat-form-field appearance="outline">
         <mat-label>Title</mat-label>
@@ -16,8 +16,8 @@
       </mat-form-field>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-raised-button color="primary">Submit</button>
-      <button mat-raised-button color="accent" (click)="cancelled.emit()">Cancel</button>
+      <button mat-raised-button color="primary" type="submit">Submit</button>
+      <button mat-raised-button color="accent" (click)="cancelled.emit()" type="reset">Cancel</button>
     </mat-card-actions>
   </form>
 </mat-card>
