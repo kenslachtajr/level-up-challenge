@@ -11,3 +11,10 @@ body {
   font-family: Roboto, sans-serif;
   height: 100%;
 }
+
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+  }
