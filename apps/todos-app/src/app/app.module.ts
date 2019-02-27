@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { CoreDataModule } from '@workspace/core-data';
 import { MaterialModule } from '@workspace/material';
+import { UiToolbarModule } from '@workspace/ui-toolbar';
 import { RoutingModule } from './routing.module';
 
 import { AppComponent } from './app.component';
@@ -15,7 +16,8 @@ import { LoginComponent } from './login/login.component';
   imports: [
     BrowserModule, 
     CoreDataModule,
-    MaterialModule, 
+    MaterialModule,
+    UiToolbarModule, 
     RoutingModule],
   declarations: [
     AppComponent,
