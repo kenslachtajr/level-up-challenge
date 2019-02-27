@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'todos-app';
+  links = [
+    { path: '/login', icon: 'person', label: 'Login' },
+    { path: '/todos', icon: 'loyalty', label: 'Todos' }
+  ]
 }
