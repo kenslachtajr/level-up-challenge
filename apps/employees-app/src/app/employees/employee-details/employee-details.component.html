@@ -1,0 +1,49 @@
+<mat-card>
+    <mat-card-header>
+      <mat-card-title>Create/Edit Employee</mat-card-title>
+    </mat-card-header>
+    <form (submit)="saved.emit(currentEmployee)">
+      <mat-card-content>
+        <mat-form-field appearance="outline">
+          <mat-label>Full Name</mat-label>
+          <input matInput type="text" placeholder="Enter full name" 
+          [(ngModel)]="currentEmployee.fullName" name="name"/>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Job Title</mat-label>
+          <input matInput type="text" placeholder="Enter a job title" 
+          [(ngModel)]="currentEmployee.jobTitle" name="job title"/>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Email Address</mat-label>
+            <input matInput type="text" placeholder="Enter an email address" 
+            [(ngModel)]="currentEmployee.emailAddress" name="email address"/>
+          </mat-form-field>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" type="submit">Submit</button>
+        <button mat-raised-button color="accent" (click)="cancelled.emit()" type="reset">Cancel</button>
+      </mat-card-actions>
+    </form>
+  </mat-card>
+
+  <!-- export interface Employee {
+    id: number;
+    userId: string;
+    jobTitle: string;
+    fullName: string;
+    preferredName: string;
+    employeeCode: string;
+    phoneNumber: string;
+    emailAddress: string;
+    address: Address;
+  }
+  
+  export interface Address {
+    street1: string;
+    street2: string;
+    city: string;
+    state: string;
+    zip: string;
+  } -->
+  

@@ -28,6 +28,12 @@
     },
     "todos-app-e2e": {
       "tags": []
+    },
+    "employees-app": {
+      "tags": ["employees"]
+    },
+    "employees-app-e2e": {
+      "tags": []
     }
   }
 }

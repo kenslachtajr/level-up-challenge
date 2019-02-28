@@ -275,6 +275,124 @@
           }
         }
       }
+    },
+    "employees-app": {
+      "root": "apps/employees-app/",
+      "sourceRoot": "apps/employees-app/src",
+      "projectType": "application",
+      "prefix": "workspace",
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "style": "sass"
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/employees-app",
+            "index": "apps/employees-app/src/index.html",
+            "main": "apps/employees-app/src/main.ts",
+            "polyfills": "apps/employees-app/src/polyfills.ts",
+            "tsConfig": "apps/employees-app/tsconfig.app.json",
+            "assets": [
+              "apps/employees-app/src/favicon.ico",
+              "apps/employees-app/src/assets"
+            ],
+            "styles": ["apps/employees-app/src/styles.scss"],
+            "scripts": [],
+            "es5BrowserSupport": true
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/employees-app/src/environments/environment.ts",
+                  "with": "apps/employees-app/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "employees-app:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "employees-app:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "employees-app:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/employees-app/tsconfig.app.json",
+              "apps/employees-app/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/builders:jest",
+          "options": {
+            "jestConfig": "apps/employees-app/jest.config.js",
+            "tsConfig": "apps/employees-app/tsconfig.spec.json",
+            "setupFile": "apps/employees-app/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "employees-app-e2e": {
+      "root": "apps/employees-app-e2e",
+      "projectType": "application",
+      "prefix": "",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/builders:cypress",
+          "options": {
+            "cypressConfig": "apps/employees-app-e2e/cypress.json",
+            "tsConfig": "apps/employees-app-e2e/tsconfig.e2e.json",
+            "devServerTarget": "employees-app:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "employees-app:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "apps/employees-app-e2e/tsconfig.e2e.json",
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      }
     }
   },
   "cli": {

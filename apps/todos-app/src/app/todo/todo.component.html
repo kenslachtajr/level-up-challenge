@@ -1,6 +1,7 @@
 <div class="wrapper">
   <div class="list-grid">
-    <workspace-todo-list [todos]="todos$ | async"
+    <workspace-todo-list 
+    [todos]="todos$ | async"
     (selected)="selectTodo($event)"
     (deleted)="deleteTodo($event)">
     </workspace-todo-list>

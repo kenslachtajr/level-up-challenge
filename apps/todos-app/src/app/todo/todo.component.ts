@@ -19,7 +19,6 @@ export class TodoComponent implements OnInit {
 
   selectTodo(todo: Todo) {
     this.todo = todo;
-    console.log(todo);
   }
 
   getTodos() {
