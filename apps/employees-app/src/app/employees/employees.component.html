@@ -3,14 +3,16 @@
     <workspace-employees-list
       [employees]="employees$ | async"
       (selected)="selectEmployee($event)"
-      (deleted)="deleteEmployee($event)">
+      (deleted)="deleteEmployee($event)"
+    >
     </workspace-employees-list>
   </div>
   <div class="details-grid">
-    <workspace-employee-details [selectEmployee]="employee"
-    (cancelled)="reset()"
-    (saved)="saveEmployee($event)">
+    <workspace-employee-details
+      [selectEmployee]="employee"
+      (cancelled)="reset()"
+      (saved)="saveEmployee($event)"
+    >
     </workspace-employee-details>
-
   </div>
 </div>

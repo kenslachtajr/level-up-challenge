@@ -34,6 +34,12 @@
     },
     "employees-app-e2e": {
       "tags": []
+    },
+    "pizza-app": {
+      "tags": ["pizza"]
+    },
+    "pizza-app-e2e": {
+      "tags": []
     }
   }
 }

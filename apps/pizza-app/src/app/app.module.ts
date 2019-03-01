@@ -9,26 +9,26 @@ import { UiLoginModule } from '@workspace/ui-login';
 
 import { RoutingModule } from './routing.module';
 import { AppComponent } from './app.component';
-import { EmployeesComponent } from './employees/employees.component';
+import { PizzaComponent } from './pizza/pizza.component';
 import { LoginComponent } from './login/login.component';
-import { EmployeesListComponent } from './employees/employees-list/employees-list.component';
-import { EmployeeDetailsComponent } from './employees/employee-details/employee-details.component';
+import { PizzaDetailsComponent } from './pizza/pizza-details/pizza-details.component';
+import { PizzaListComponent } from './pizza/pizza-list/pizza-list.component';
 
 @NgModule({
   declarations: [
-    AppComponent, 
-    EmployeesComponent, 
-    LoginComponent, 
-    EmployeesListComponent, 
-    EmployeeDetailsComponent
+    AppComponent,
+    PizzaComponent,
+    LoginComponent,
+    PizzaDetailsComponent,
+    PizzaListComponent
   ],
   imports: [
-    BrowserModule,
-    FormsModule,
-    CoreDataModule,
-    MaterialModule,
-    UiToolbarModule,
-    UiLoginModule,
+    BrowserModule, 
+    FormsModule, 
+    CoreDataModule, 
+    MaterialModule, 
+    UiToolbarModule, 
+    UiLoginModule, 
     RoutingModule],
   providers: [],
   bootstrap: [AppComponent]

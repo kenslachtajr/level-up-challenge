@@ -1,0 +1,18 @@
+<div class="wrapper">
+  <div class="list-grid">
+    <workspace-pizza-list
+      [pizzas]="pizzas$ | async"
+      (selected)="selectPizza($event)"
+      (deleted)="deletePizza($event)"
+    >
+    </workspace-pizza-list>
+  </div>
+  <div class="details-grid">
+    <workspace-pizza-details
+      [selectPizza]="pizza"
+      (cancelled)="reset()"
+      (saved)="savePizza($event)"
+    >
+    </workspace-pizza-details>
+  </div>
+</div>
