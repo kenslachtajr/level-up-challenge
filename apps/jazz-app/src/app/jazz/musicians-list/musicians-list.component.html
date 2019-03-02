@@ -1,0 +1,23 @@
+<mat-card>
+  <mat-list>
+    <h3 mat-subheader>Jazz Musicians</h3>
+    <mat-list-item
+      *ngFor="let musician of musicians"
+      class="mat-list-option"
+      (click)="selected.emit(musician)"
+    >
+      <h4 mat-line><strong>Musician name:</strong>{{ musician.name }}</h4>
+      <p mat-line><strong>Instrument: </strong>{{ musician.instrument }}</p>
+      <p mat-line><strong>Genre: </strong>{{ musician.style }}</p>
+      <p mat-line><strong>Year born: </strong>{{ musician.year }}</p>
+      <button
+        mat-mini-fab
+        color="accent"
+        class="mat-pseudo-checkbox"
+        (click)="deleted.emit(musician.id)"
+      >
+        <mat-icon> clear </mat-icon>
+      </button>
+    </mat-list-item>
+  </mat-list>
+</mat-card>

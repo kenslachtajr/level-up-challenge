@@ -40,6 +40,12 @@
     },
     "pizza-app-e2e": {
       "tags": []
+    },
+    "jazz-app": {
+      "tags": ["jazz"]
+    },
+    "jazz-app-e2e": {
+      "tags": []
     }
   }
 }
