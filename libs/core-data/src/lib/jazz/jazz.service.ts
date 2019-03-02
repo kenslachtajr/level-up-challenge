@@ -3,8 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Musician } from './jazz.model';
 import { Observable } from 'rxjs';
 
-const BASE_URL = 'https://levelup-json-app.herokuapp.com/';
-const model = 'musician';
+const BASE_URL = 'https://jazz-musicians-project.herokuapp.com/';
+const model = 'musicians';
 
 @Injectable({
   providedIn: 'root'
