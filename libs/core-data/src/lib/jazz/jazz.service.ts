@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Musician } from './jazz.model';
 import { Observable } from 'rxjs';
 
-const BASE_URL = 'https://jazz-musicians-project.herokuapp.com/';
+const BASE_URL = 'https://level-up-data.herokuapp.com/';
 const model = 'musicians';
 
 @Injectable({

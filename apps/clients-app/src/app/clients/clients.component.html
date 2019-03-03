@@ -1,0 +1,18 @@
+<div class="wrapper">
+  <div class="list-grid">
+    <workspace-clients-list
+    [clients]="clients$ | async"
+    (selected)="selectClient($event)"
+    (deleted)="deleteClient($event)"
+    >
+  </workspace-clients-list>
+  </div>
+  <div class="details-grid">
+      <workspace-client-details
+      [selectClient]="client"
+      (cancelled)="reset()"
+      (saved)="saveClient($event)"
+      >
+      </workspace-client-details>
+    </div>
+</div>

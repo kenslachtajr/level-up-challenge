@@ -1,0 +1,61 @@
+<mat-card>
+    <mat-card-header>
+      <mat-card-title>Create/Edit Client</mat-card-title>
+    </mat-card-header>
+    <form (submit)="saved.emit(currentClient)">
+      <mat-card-content>
+        <mat-form-field appearance="outline">
+          <mat-label>Name</mat-label>
+          <input
+            matInput
+            type="text"
+            placeholder="Enter client name"
+            [(ngModel)]="currentClient.name"
+            name="name"
+          />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Company</mat-label>
+          <input
+            matInput
+            type="text"
+            placeholder="Enter company name"
+            [(ngModel)]="currentClient.company"
+            name="job title"
+          />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Age</mat-label>
+            <input
+              matInput
+              type="text"
+              placeholder="Enter age"
+              [(ngModel)]="currentClient.age"
+              name="age"
+            />
+          </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Phone number</mat-label>
+          <input
+            matInput
+            type="text"
+            placeholder="Enter phone number"
+            [(ngModel)]="currentClient.phone"
+            name="phone number"
+          />
+        </mat-form-field>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" type="submit">Submit</button>
+        <button
+          mat-raised-button
+          color="accent"
+          (click)="cancelled.emit()"
+          type="reset"
+        >
+          Cancel
+        </button>
+      </mat-card-actions>
+    </form>
+  </mat-card>
+  

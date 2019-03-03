@@ -1,0 +1,21 @@
+<mat-card>
+  <mat-list>
+    <h3 mat-subheader>Clients</h3>
+    <mat-list-item
+      *ngFor="let client of clients"
+      class="mat-list-option"
+      (click)="selected.emit(client)"
+    >
+      <h4 mat-line><strong>Client Name: </strong>{{ client.name }}</h4>
+      <p mat-line><strong>Company: </strong>{{ client.company }}</p>
+      <button
+        mat-mini-fab
+        color="accent"
+        class="mat-pseudo-checkbox"
+        (click)="deleted.emit(client.id)"
+      >
+        <mat-icon> clear </mat-icon>
+      </button>
+    </mat-list-item>
+  </mat-list>
+</mat-card>

@@ -46,6 +46,12 @@
     },
     "jazz-app-e2e": {
       "tags": []
+    },
+    "clients-app": {
+      "tags": ["clients"]
+    },
+    "clients-app-e2e": {
+      "tags": []
     }
   }
 }
