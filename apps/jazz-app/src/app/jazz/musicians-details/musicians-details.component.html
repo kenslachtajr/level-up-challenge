@@ -46,13 +46,17 @@
         </mat-form-field>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-raised-button color="primary" type="submit">Submit</button>
+      <button 
+      mat-raised-button 
+      color="primary" 
+      (click)="saved.emit()"
+      type="submit">
+      Submit</button>
       <button
         mat-raised-button
         color="accent"
         (click)="cancelled.emit()"
-        type="reset"
-      >
+        type="reset">
         Cancel
       </button>
     </mat-card-actions>

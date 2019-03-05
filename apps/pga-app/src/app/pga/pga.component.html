@@ -1,3 +1,18 @@
-<p>
-  pga works!
-</p>
+<div class="wrapper">
+  <div class="list-grid">
+    <workspace-pga-list
+    [golfer]="golfer$ | async"
+    (selected)="selectGolfer($event)"
+    (deleted)="deleteGolfer($event)"
+    >
+    </workspace-pga-list>
+  </div>
+  <div class="details-grid">
+    <workspace-pga-detail
+    [selectGolfer]="golfer"
+    (cancelled)="reset()"
+    (saved)="saveGolfer($event)"
+    >
+    </workspace-pga-detail>
+  </div>
+</div>

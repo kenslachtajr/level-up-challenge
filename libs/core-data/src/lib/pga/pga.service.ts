@@ -4,7 +4,7 @@ import { Golfer } from './pga.model';
 import { Observable } from 'rxjs';
 
 const BASE_URL = 'https://level-up-data.herokuapp.com/';
-const model = 'pga';
+const model = 'golfers';
 
 @Injectable({
   providedIn: 'root'
@@ -33,6 +33,6 @@ export class PgaService {
   }
 
   private getForUrlId(id: number) {
-    return `${this.getForUrl()}/${id}}`;
+    return `${this.getForUrl()}/${id}`;
   }
 }

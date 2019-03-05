@@ -1,3 +1,66 @@
-<p>
-  pga-detail works!
-</p>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Create/Edit Golfer</mat-card-title>
+  </mat-card-header>
+  <form (submit)="saved.emit(currentGolfer)">
+    <mat-card-content>
+      <mat-form-field appearance="outline">
+        <mat-label>Name</mat-label>
+        <input
+          matInput
+          type="text"
+          placeholder="Enter full name"
+          [(ngModel)]="currentGolfer.name"
+          name="full name"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Caddy</mat-label>
+        <input
+          matInput
+          type="text"
+          placeholder="Enter caddy name"
+          [(ngModel)]="currentGolfer.caddy"
+          name="caddy name"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Age</mat-label>
+        <input
+          matInput
+          type="text"
+          placeholder="Enter age"
+          [(ngModel)]="currentGolfer.age"
+          name="age"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Major wins</mat-label>
+        <input
+          matInput
+          type="text"
+          placeholder="Major wins"
+          [(ngModel)]="currentGolfer.majorWins"
+          name="major wins"
+        />
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions>
+      <button 
+      mat-raised-button 
+      color="primary" 
+      (click)="saved.emit()"
+      type="submit">
+      Submit
+    </button>
+      <button
+        mat-raised-button
+        color="accent"
+        (click)="cancelled.emit()"
+        type="reset"
+      >
+        Cancel
+      </button>
+    </mat-card-actions>
+  </form>
+</mat-card>
