@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'pga-app';
+  title = 'Top PGA Golfers';
+  links = [
+    { path: '/login', icon: 'person', label: 'Login' },
+    { path: '/golfers', icon: 'loyalty', label: 'Golfers' }
+  ]
 }
