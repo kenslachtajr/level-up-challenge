@@ -52,6 +52,18 @@
     },
     "clients-app-e2e": {
       "tags": []
+    },
+    "staff-app": {
+      "tags": ["staff"]
+    },
+    "staff-app-e2e": {
+      "tags": []
+    },
+    "pga-app": {
+      "tags": ["pga"]
+    },
+    "pga-app-e2e": {
+      "tags": []
     }
   }
 }

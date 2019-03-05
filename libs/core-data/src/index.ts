@@ -5,9 +5,13 @@ export { Employee } from './lib/employees/employees.model';
 export { Pizza } from './lib/pizza/pizza.model';
 export { Musician } from './lib/jazz/jazz.model';
 export { Client } from './lib/clients/client.model';
+export { Staff } from './lib/staff/staff.model';
+export { Golfer } from './lib/pga/pga.model';
 
 export { TodoService } from './lib/todo/todo.service';
 export { EmployeesService } from './lib/employees/employees.service';
 export { PizzaService } from './lib/pizza/pizza.service';
 export { JazzService } from './lib/jazz/jazz.service';
 export { ClientsService } from './lib/clients/clients.service';
+export { StaffService } from './lib/staff/staff.service';
+export { PgaService } from './lib/pga/pga.service';

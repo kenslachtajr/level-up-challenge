@@ -1,0 +1,27 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Staff List</mat-card-title>
+  </mat-card-header>
+  <mat-list>
+    <mat-list-item
+      *ngFor="let staff of staff"
+      class="mat-list-option"
+      (click)="selected.emit(staff)"
+    >
+      <h4 mat-line>
+        <strong>Name: </strong>{{ staff.first_name }} {{ staff.last_name }}
+      </h4>
+      <h5 mat-line>
+        <strong>Name: </strong>{{ staff.first_name }} {{ staff.last_name }}
+      </h5>
+      <button
+        mat-mini-fab
+        color="accent"
+        class="mat-pseudo-checkbox"
+        (click)="deleted.emit(staff.id)"
+      >
+        <mat-icon> clear </mat-icon>
+      </button>
+    </mat-list-item>
+  </mat-list>
+</mat-card>

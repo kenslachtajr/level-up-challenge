@@ -747,6 +747,242 @@
           }
         }
       }
+    },
+    "staff-app": {
+      "root": "apps/staff-app/",
+      "sourceRoot": "apps/staff-app/src",
+      "projectType": "application",
+      "prefix": "workspace",
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "style": "sass"
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/staff-app",
+            "index": "apps/staff-app/src/index.html",
+            "main": "apps/staff-app/src/main.ts",
+            "polyfills": "apps/staff-app/src/polyfills.ts",
+            "tsConfig": "apps/staff-app/tsconfig.app.json",
+            "assets": [
+              "apps/staff-app/src/favicon.ico",
+              "apps/staff-app/src/assets"
+            ],
+            "styles": ["apps/staff-app/src/styles.scss"],
+            "scripts": [],
+            "es5BrowserSupport": true
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/staff-app/src/environments/environment.ts",
+                  "with": "apps/staff-app/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "staff-app:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "staff-app:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "staff-app:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/staff-app/tsconfig.app.json",
+              "apps/staff-app/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/builders:jest",
+          "options": {
+            "jestConfig": "apps/staff-app/jest.config.js",
+            "tsConfig": "apps/staff-app/tsconfig.spec.json",
+            "setupFile": "apps/staff-app/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "staff-app-e2e": {
+      "root": "apps/staff-app-e2e",
+      "projectType": "application",
+      "prefix": "",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/builders:cypress",
+          "options": {
+            "cypressConfig": "apps/staff-app-e2e/cypress.json",
+            "tsConfig": "apps/staff-app-e2e/tsconfig.e2e.json",
+            "devServerTarget": "staff-app:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "staff-app:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "apps/staff-app-e2e/tsconfig.e2e.json",
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      }
+    },
+    "pga-app": {
+      "root": "apps/pga-app/",
+      "sourceRoot": "apps/pga-app/src",
+      "projectType": "application",
+      "prefix": "workspace",
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "style": "sass"
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/pga-app",
+            "index": "apps/pga-app/src/index.html",
+            "main": "apps/pga-app/src/main.ts",
+            "polyfills": "apps/pga-app/src/polyfills.ts",
+            "tsConfig": "apps/pga-app/tsconfig.app.json",
+            "assets": [
+              "apps/pga-app/src/favicon.ico",
+              "apps/pga-app/src/assets"
+            ],
+            "styles": ["apps/pga-app/src/styles.scss"],
+            "scripts": [],
+            "es5BrowserSupport": true
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/pga-app/src/environments/environment.ts",
+                  "with": "apps/pga-app/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "pga-app:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "pga-app:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "pga-app:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/pga-app/tsconfig.app.json",
+              "apps/pga-app/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/builders:jest",
+          "options": {
+            "jestConfig": "apps/pga-app/jest.config.js",
+            "tsConfig": "apps/pga-app/tsconfig.spec.json",
+            "setupFile": "apps/pga-app/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "pga-app-e2e": {
+      "root": "apps/pga-app-e2e",
+      "projectType": "application",
+      "prefix": "",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/builders:cypress",
+          "options": {
+            "cypressConfig": "apps/pga-app-e2e/cypress.json",
+            "tsConfig": "apps/pga-app-e2e/tsconfig.e2e.json",
+            "devServerTarget": "pga-app:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "pga-app:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "apps/pga-app-e2e/tsconfig.e2e.json",
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      }
     }
   },
   "cli": {

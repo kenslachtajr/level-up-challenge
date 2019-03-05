@@ -12,6 +12,8 @@
     "deploy:pizza": "npm run build --project pizza-app && cp ./dist/apps/pizza-app/index.html ./dist/apps/pizza-app/200.html && surge ./dist/apps/pizza-app/ https://pizza-shoppe.surge.sh",
     "deploy:jazz": "npm run build --project jazz-app && cp ./dist/apps/jazz-app/index.html ./dist/apps/jazz-app/200.html && surge ./dist/apps/jazz-app/ https://jazz-musicians.surge.sh",
     "deploy:clients": "npm run build --project clients-app && cp ./dist/apps/clients-app/index.html ./dist/apps/clients-app/200.html && surge ./dist/apps/clients-app/ https://clients-app.surge.sh",
+    "deploy:staff": "npm run build --project staff-app && cp ./dist/apps/staff-app/index.html ./dist/apps/staff-app/200.html && surge ./dist/apps/staff-app/ https://staff-app.surge.sh",
+    "deploy:pga": "npm run build --project pga-app && cp ./dist/apps/pga-app/index.html ./dist/apps/pga-app/200.html && surge ./dist/apps/pga-app/ https://pga-app.surge.sh",
     "test": "ng test",
     "lint": "./node_modules/.bin/nx lint && ng lint",
     "e2e": "ng e2e",

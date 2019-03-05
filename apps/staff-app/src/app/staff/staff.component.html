@@ -1,0 +1,18 @@
+<div class="wrapper">
+  <div class="list-grid">
+    <workspace-staff-list
+      [staff]="staff$ | async"
+      (selected)="selectStaff($event)"
+      (deleted)="deleteStaff($event)"
+    >
+    </workspace-staff-list>
+  </div>
+  <div class="details-grid">
+    <workspace-staff-details
+      [selectStaff]="staff"
+      (cancelled)="reset()"
+      (saved)="saveStaff($event)"
+    >
+    </workspace-staff-details>
+  </div>
+</div>
