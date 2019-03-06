@@ -64,6 +64,12 @@
     },
     "pga-app-e2e": {
       "tags": []
+    },
+    "drug-store-app": {
+      "tags": ["drug-store"]
+    },
+    "drug-store-app-e2e": {
+      "tags": []
     }
   }
 }
