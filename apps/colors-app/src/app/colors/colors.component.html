@@ -1,0 +1,18 @@
+<div class="wrapper">
+  <div class="list-grid">
+    <workspace-color-list
+    [colors]="colors$ | async"
+    (selected)="selectColor($event)"
+    (deleted)="deleteColor($event)"
+    >
+  </workspace-color-list>
+  </div>
+  <div class="details-grid">
+      <workspace-color-details
+      [selectColor]="color"
+      (cancelled)="reset()"
+      (saved)="saveColor($event)"
+      >
+      </workspace-color-details>
+    </div>
+</div>

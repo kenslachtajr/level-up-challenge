@@ -1101,6 +1101,124 @@
           }
         }
       }
+    },
+    "colors-app": {
+      "root": "apps/colors-app/",
+      "sourceRoot": "apps/colors-app/src",
+      "projectType": "application",
+      "prefix": "workspace",
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "style": "sass"
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/colors-app",
+            "index": "apps/colors-app/src/index.html",
+            "main": "apps/colors-app/src/main.ts",
+            "polyfills": "apps/colors-app/src/polyfills.ts",
+            "tsConfig": "apps/colors-app/tsconfig.app.json",
+            "assets": [
+              "apps/colors-app/src/favicon.ico",
+              "apps/colors-app/src/assets"
+            ],
+            "styles": ["apps/colors-app/src/styles.scss"],
+            "scripts": [],
+            "es5BrowserSupport": true
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/colors-app/src/environments/environment.ts",
+                  "with": "apps/colors-app/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "colors-app:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "colors-app:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "colors-app:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/colors-app/tsconfig.app.json",
+              "apps/colors-app/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/builders:jest",
+          "options": {
+            "jestConfig": "apps/colors-app/jest.config.js",
+            "tsConfig": "apps/colors-app/tsconfig.spec.json",
+            "setupFile": "apps/colors-app/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "colors-app-e2e": {
+      "root": "apps/colors-app-e2e",
+      "projectType": "application",
+      "prefix": "",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/builders:cypress",
+          "options": {
+            "cypressConfig": "apps/colors-app-e2e/cypress.json",
+            "tsConfig": "apps/colors-app-e2e/tsconfig.e2e.json",
+            "devServerTarget": "colors-app:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "colors-app:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "apps/colors-app-e2e/tsconfig.e2e.json",
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      }
     }
   },
   "cli": {

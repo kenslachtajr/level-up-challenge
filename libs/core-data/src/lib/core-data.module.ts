@@ -8,11 +8,12 @@ import { ClientsService } from './clients/clients.service';
 import { StaffService } from './staff/staff.service';
 import { PgaService } from './pga/pga.service';
 import { DrugStoreService } from './drug-store/drug-store.service';
+import { ColorsService } from './colors/colors.service';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [CommonModule, HttpClientModule],
-  providers: [TodoService, EmployeesService, PizzaService, JazzService, ClientsService, StaffService, PgaService, DrugStoreService],
+  providers: [TodoService, EmployeesService, PizzaService, JazzService, ClientsService, StaffService, PgaService, DrugStoreService, ColorsService],
   exports: [HttpClientModule]
 })
 export class CoreDataModule {}

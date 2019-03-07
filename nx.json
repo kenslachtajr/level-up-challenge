@@ -70,6 +70,12 @@
     },
     "drug-store-app-e2e": {
       "tags": []
+    },
+    "colors-app": {
+      "tags": ["colors"]
+    },
+    "colors-app-e2e": {
+      "tags": []
     }
   }
 }
