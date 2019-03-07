@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Client } from '@workspace/core-data';
 
 @Component({
@@ -7,9 +7,7 @@ import { Client } from '@workspace/core-data';
   styleUrls: ['./clients-list.component.scss']
 })
 export class ClientsListComponent {
-
   @Input() clients: Client[];
   @Output() selected = new EventEmitter();
   @Output() deleted = new EventEmitter();
-
 }

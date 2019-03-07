@@ -1,4 +1,4 @@
-export interface Drugs {
+export interface Drug {
     id: number;
     product_name: string;
     supplier: string;

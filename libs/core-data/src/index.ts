@@ -7,6 +7,7 @@ export { Musician } from './lib/jazz/jazz.model';
 export { Client } from './lib/clients/client.model';
 export { Staff } from './lib/staff/staff.model';
 export { Golfer } from './lib/pga/pga.model';
+export { Drug } from './lib/drug-store/drug-store.model';
 
 export { TodoService } from './lib/todo/todo.service';
 export { EmployeesService } from './lib/employees/employees.service';
@@ -15,3 +16,4 @@ export { JazzService } from './lib/jazz/jazz.service';
 export { ClientsService } from './lib/clients/clients.service';
 export { StaffService } from './lib/staff/staff.service';
 export { PgaService } from './lib/pga/pga.service';
+export { DrugStoreService } from './lib/drug-store/drug-store.service';

@@ -1,3 +1,18 @@
-<p>
-  drug-store works!
-</p>
+<div class="wrapper">
+  <div class="list-grid">
+    <workspace-drug-store-list
+    [drugs]="drugs$ | async"
+    (selected)="selectDrug($event)"
+    (deleted)="deleteDrug($event)"
+    >
+  </workspace-drug-store-list>
+  </div>
+  <div class="details-grid">
+      <workspace-drug-store-details
+      [selectDrug]="drug"
+      (cancelled)="reset()"
+      (saved)="saveDrug($event)"
+      >
+      </workspace-drug-store-details>
+    </div>
+</div>
