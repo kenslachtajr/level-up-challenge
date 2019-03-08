@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Observable } from 'rxjs';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Color, ColorsService } from '@workspace/core-data';
+import { group } from '@angular/animations';
 
 @Component({
   selector: 'workspace-colors',
@@ -10,15 +12,21 @@ import { Color, ColorsService } from '@workspace/core-data';
 export class ColorsComponent implements OnInit {
   color: Color;
   colors$: Observable<Color[]>;
+  form: FormGroup;
 
-  constructor(private colorsService: ColorsService) {}
+  constructor(
+    private colorsService: ColorsService,
+    private formBuilder: FormBuilder
+  ) {}
 
   ngOnInit() {
     this.getColors();
+    this.initForm();
   }
 
   selectColor(color: Color) {
     this.color = color;
+    this.form.patchValue(color);
   }
 
   getColors() {
@@ -51,16 +59,16 @@ export class ColorsComponent implements OnInit {
   }
 
   reset() {
-    const emptyColor: Color = {
-      id: null,
+    this.form.reset();
+  }
+
+  private initForm() {
+    this.form = this.formBuilder.group({
+      id: [null],
       color: '',
       category: '',
       type: '',
-      code: {
-        rgba: [],
-        hex: ''
-      }
-    };
-    this.selectColor(emptyColor);
+      hex: ''
+    });
   }
 }

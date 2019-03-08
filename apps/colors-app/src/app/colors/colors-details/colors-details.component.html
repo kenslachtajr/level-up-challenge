@@ -1,3 +1,60 @@
-<p>
-  colors-details works!
-</p>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Create/Edit Color</mat-card-title>
+  </mat-card-header>
+  <form (submit)="saved.emit(group.value)" [formGroup]="group">
+    <mat-card-content>
+      <mat-form-field appearance="outline">
+        <mat-label>Color Name</mat-label>
+        <input
+          formControlName="color"
+          matInput
+          type="text"
+          placeholder="Enter color name"
+          name="color name"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Category</mat-label>
+        <input
+          formControlName="category"
+          matInput
+          type="text"
+          placeholder="Enter color category"
+          name="color category"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Type</mat-label>
+        <input
+          formControlName="type"
+          matInput
+          type="text"
+          placeholder="Enter type"
+          name="type"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Hex Code</mat-label>
+        <input
+          formControlName="hex"
+          matInput
+          type="text"
+          placeholder="Enter Hex Code"
+          name="hex"
+        />
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit">Submit</button>
+      <button
+        mat-raised-button
+        color="accent"
+        (click)="cancelled.emit()"
+        type="reset"
+      >
+        Cancel
+      </button>
+    </mat-card-actions>
+  </form>
+</mat-card>

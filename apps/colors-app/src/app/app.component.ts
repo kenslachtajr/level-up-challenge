@@ -6,9 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Color The World';
+  title = 'Colors List';
   links = [
     { path: '/login', icon: 'person', label: 'Login' },
-    { path: '/drug-store', icon: 'loyalty', label: 'Drug-Store' }
+    { path: '/drug-store', icon: 'loyalty', label: 'Colors' }
   ]
 }
