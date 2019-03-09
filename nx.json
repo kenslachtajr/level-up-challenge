@@ -76,6 +76,12 @@
     },
     "colors-app-e2e": {
       "tags": []
+    },
+    "piano-brands": {
+      "tags": ["piano"]
+    },
+    "piano-brands-e2e": {
+      "tags": []
     }
   }
 }

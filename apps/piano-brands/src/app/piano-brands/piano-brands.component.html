@@ -1,0 +1,18 @@
+<div class="wrapper">
+  <div class="list-grid">
+    <workspace-piano-brand-list
+    [piano]="pianos$ | async"
+    (selected)="selectPiano($event)"
+    (deleted)="deletePiano($event)"
+    >
+    </workspace-piano-brand-list>
+  </div>
+  <div class="details-grid">
+    <workspace-piano-brands-details
+    [selectPiano]="piano"
+    (cancelled)="reset()"
+    (saved)="savePiano($event)"
+    >
+    </workspace-piano-brands-details>
+  </div>
+</div>

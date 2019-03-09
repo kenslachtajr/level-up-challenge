@@ -1219,6 +1219,124 @@
           }
         }
       }
+    },
+    "piano-brands": {
+      "root": "apps/piano-brands/",
+      "sourceRoot": "apps/piano-brands/src",
+      "projectType": "application",
+      "prefix": "workspace",
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "style": "sass"
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/piano-brands",
+            "index": "apps/piano-brands/src/index.html",
+            "main": "apps/piano-brands/src/main.ts",
+            "polyfills": "apps/piano-brands/src/polyfills.ts",
+            "tsConfig": "apps/piano-brands/tsconfig.app.json",
+            "assets": [
+              "apps/piano-brands/src/favicon.ico",
+              "apps/piano-brands/src/assets"
+            ],
+            "styles": ["apps/piano-brands/src/styles.scss"],
+            "scripts": [],
+            "es5BrowserSupport": true
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/piano-brands/src/environments/environment.ts",
+                  "with": "apps/piano-brands/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "piano-brands:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "piano-brands:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "piano-brands:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/piano-brands/tsconfig.app.json",
+              "apps/piano-brands/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/builders:jest",
+          "options": {
+            "jestConfig": "apps/piano-brands/jest.config.js",
+            "tsConfig": "apps/piano-brands/tsconfig.spec.json",
+            "setupFile": "apps/piano-brands/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "piano-brands-e2e": {
+      "root": "apps/piano-brands-e2e",
+      "projectType": "application",
+      "prefix": "",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/builders:cypress",
+          "options": {
+            "cypressConfig": "apps/piano-brands-e2e/cypress.json",
+            "tsConfig": "apps/piano-brands-e2e/tsconfig.e2e.json",
+            "devServerTarget": "piano-brands:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "piano-brands:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "apps/piano-brands-e2e/tsconfig.e2e.json",
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      }
     }
   },
   "cli": {

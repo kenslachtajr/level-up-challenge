@@ -1,0 +1,21 @@
+<mat-card>
+  <mat-list>
+    <h3 mat-subheader>Piano Maker List</h3>
+    <mat-list-item 
+    *ngFor="let piano of piano" 
+    class="mat-list-option"
+    (click)="selected.emit(piano)"
+    >
+      <h4 mat-line><strong>Piano Brand Name: </strong>{{ piano.name }}</h4>
+      <p mat-line><strong>Year started: </strong>{{ piano.yearStarted }}</p>
+      <button
+        mat-mini-fab
+        color="accent"
+        class="mat-pseudo-checkbox"
+        (click)="deleted.emit(piano.id)"
+      >
+        <mat-icon> clear </mat-icon>
+      </button>
+    </mat-list-item>
+  </mat-list>
+</mat-card>

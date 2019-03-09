@@ -9,11 +9,12 @@ import { StaffService } from './staff/staff.service';
 import { PgaService } from './pga/pga.service';
 import { DrugStoreService } from './drug-store/drug-store.service';
 import { ColorsService } from './colors/colors.service';
+import { PianoBrandsService } from './piano-brands/piano-brands.service';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [CommonModule, HttpClientModule],
-  providers: [TodoService, EmployeesService, PizzaService, JazzService, ClientsService, StaffService, PgaService, DrugStoreService, ColorsService],
+  providers: [TodoService, EmployeesService, PizzaService, JazzService, ClientsService, StaffService, PgaService, DrugStoreService, ColorsService, PianoBrandsService],
   exports: [HttpClientModule]
 })
 export class CoreDataModule {}
