@@ -17,6 +17,7 @@
     "deploy:drug-store": "npm run build --project drug-store-app && cp ./dist/apps/drug-store-app/index.html ./dist/apps/drug-store-app/200.html && surge ./dist/apps/drug-store-app/ https://drug-store-app.surge.sh",
     "deploy:colors": "npm run build --project colors-app && cp ./dist/apps/colors-app/index.html ./dist/apps/colors-app/200.html && surge ./dist/apps/colors-app/ https://colors-app.surge.sh",
     "deploy:piano-brands": "npm run build --project piano-brands && cp ./dist/apps/piano-brands/index.html ./dist/apps/piano-brands/200.html && surge ./dist/apps/piano-brands/ https://piano-brands.surge.sh",
+    "deploy:operas": "npm run build --project operas && cp ./dist/apps/operas/index.html ./dist/apps/operas/200.html && surge ./dist/apps/operas/ https://operas.surge.sh",
     "test": "ng test",
     "lint": "./node_modules/.bin/nx lint && ng lint",
     "e2e": "ng e2e",

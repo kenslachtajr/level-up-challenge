@@ -82,6 +82,12 @@
     },
     "piano-brands-e2e": {
       "tags": []
+    },
+    "operas": {
+      "tags": ["operas"]
+    },
+    "operas-e2e": {
+      "tags": []
     }
   }
 }

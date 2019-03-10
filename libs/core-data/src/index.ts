@@ -10,6 +10,7 @@ export { Golfer } from './lib/pga/pga.model';
 export { Drug } from './lib/drug-store/drug-store.model';
 export { Color } from './lib/colors/colors.model';
 export { Piano } from './lib/piano-brands/piano-brands.model';
+export { Opera } from './lib/operas/opera.model';
 
 export { TodoService } from './lib/todo/todo.service';
 export { EmployeesService } from './lib/employees/employees.service';
@@ -21,3 +22,4 @@ export { PgaService } from './lib/pga/pga.service';
 export { DrugStoreService } from './lib/drug-store/drug-store.service';
 export { ColorsService } from './lib/colors/colors.service';
 export { PianoBrandsService } from './lib/piano-brands/piano-brands.service';
+export { OperasService } from './lib/operas/operas.service';

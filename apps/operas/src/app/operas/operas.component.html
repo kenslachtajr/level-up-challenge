@@ -1,0 +1,18 @@
+<div class="wrapper">
+  <div class="list-grid">
+    <workspace-operas-list
+    [operas]="operas$ | async"
+    (selected)="selectOpera($event)"
+    (deleted)="deleteOpera($event)"
+    >
+    </workspace-operas-list>
+  </div>
+  <div class="details-grid">
+    <workspace-opera-details
+    [selectOpera]="opera"
+    (cancelled)="reset()"
+    (saved)="saveOpera($event)"
+    >
+    </workspace-opera-details>
+  </div>
+</div>

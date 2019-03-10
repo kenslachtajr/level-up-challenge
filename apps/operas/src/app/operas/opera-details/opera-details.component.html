@@ -1,0 +1,64 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Create/Edit Opera</mat-card-title>
+  </mat-card-header>
+  <form (submit)="saved.emit(currentOpera)">
+    <mat-card-content>
+      <mat-form-field appearance="outline">
+        <mat-label>Title</mat-label>
+        <input
+          matInput
+          type="text"
+          placeholder="Enter opera title"
+          [(ngModel)]="currentOpera.title"
+          name="opera title"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Composer</mat-label>
+        <input
+          matInput
+          type="text"
+          placeholder="Composer"
+          [(ngModel)]="currentOpera.composer"
+          name="opera composer"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Year written</mat-label>
+        <input
+          matInput
+          type="text"
+          placeholder="year written"
+          [(ngModel)]="currentOpera.year"
+          name="year written"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+          <mat-label>Language</mat-label>
+          <input
+            matInput
+            type="text"
+            placeholder="Opera language"
+            [(ngModel)]="currentOpera.language"
+            name="language"
+          />
+        </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions>
+      <button 
+      mat-raised-button 
+      color="primary" 
+      (click)="saved.emit()"
+      type="submit">
+      Submit</button>
+      <button
+        mat-raised-button
+        color="accent"
+        (click)="cancelled.emit()"
+        type="reset">
+        Cancel
+      </button>
+    </mat-card-actions>
+  </form>
+</mat-card>

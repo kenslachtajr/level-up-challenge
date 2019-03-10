@@ -1337,6 +1337,121 @@
           }
         }
       }
+    },
+    "operas": {
+      "root": "apps/operas/",
+      "sourceRoot": "apps/operas/src",
+      "projectType": "application",
+      "prefix": "workspace",
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "style": "sass"
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/operas",
+            "index": "apps/operas/src/index.html",
+            "main": "apps/operas/src/main.ts",
+            "polyfills": "apps/operas/src/polyfills.ts",
+            "tsConfig": "apps/operas/tsconfig.app.json",
+            "assets": ["apps/operas/src/favicon.ico", "apps/operas/src/assets"],
+            "styles": ["apps/operas/src/styles.scss"],
+            "scripts": [],
+            "es5BrowserSupport": true
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/operas/src/environments/environment.ts",
+                  "with": "apps/operas/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "operas:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "operas:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "operas:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/operas/tsconfig.app.json",
+              "apps/operas/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/builders:jest",
+          "options": {
+            "jestConfig": "apps/operas/jest.config.js",
+            "tsConfig": "apps/operas/tsconfig.spec.json",
+            "setupFile": "apps/operas/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "operas-e2e": {
+      "root": "apps/operas-e2e",
+      "projectType": "application",
+      "prefix": "",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/builders:cypress",
+          "options": {
+            "cypressConfig": "apps/operas-e2e/cypress.json",
+            "tsConfig": "apps/operas-e2e/tsconfig.e2e.json",
+            "devServerTarget": "operas:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "operas:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "apps/operas-e2e/tsconfig.e2e.json",
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      }
     }
   },
   "cli": {
