@@ -1,0 +1,18 @@
+<div class="wrapper">
+  <div class="list-grid">
+    <workspace-albums-list
+    [albums]="albums$ | async"
+    (selected)="selectAlbum($event)"
+    (deleted)="deleteAlbum($event)"
+    >
+  </workspace-albums-list>
+  </div>
+  <div class="details-grid">
+      <workspace-album-details
+      [selectAlbum]="album"
+      (cancelled)="reset()"
+      (saved)="saveAlbum($event)"
+      >
+      </workspace-album-details>
+    </div>
+</div>

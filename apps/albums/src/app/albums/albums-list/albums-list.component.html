@@ -1,0 +1,21 @@
+<mat-card>
+  <mat-list>
+    <h3 mat-subheader>Albums</h3>
+    <mat-list-item
+      *ngFor="let album of albums"
+      class="mat-list-option"
+      (click)="selected.emit(album)"
+    >
+      <h4 mat-line><strong>Album Title: </strong>{{ album.title }}</h4>
+      <p mat-line><strong>Artist: </strong>{{ album.artist }}</p>
+      <button
+        mat-mini-fab
+        color="accent"
+        class="mat-pseudo-checkbox"
+        (click)="deleted.emit(album.id)"
+      >
+        <mat-icon> clear </mat-icon>
+      </button>
+    </mat-list-item>
+  </mat-list>
+</mat-card>

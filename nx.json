@@ -88,6 +88,12 @@
     },
     "operas-e2e": {
       "tags": []
+    },
+    "albums": {
+      "tags": ["albums"]
+    },
+    "albums-e2e": {
+      "tags": []
     }
   }
 }
