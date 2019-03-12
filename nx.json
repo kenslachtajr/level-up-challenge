@@ -94,6 +94,12 @@
     },
     "albums-e2e": {
       "tags": []
+    },
+    "ngrx-albums": {
+      "tags": ["albums"]
+    },
+    "ngrx-albums-e2e": {
+      "tags": []
     }
   }
 }
