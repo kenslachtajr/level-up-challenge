@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Top Jazz Albums';
+  title = 'NGRX Jazz Albums';
   links = [
     { path: '/login', icon: 'person', label: 'Login' },
     { path: '/albums', icon: 'loyalty', label: 'Albums' }
