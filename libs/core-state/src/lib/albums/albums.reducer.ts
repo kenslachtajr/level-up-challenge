@@ -12,31 +12,38 @@ export interface AlbumsState extends EntityState<Album> {
 export const adapter: EntityAdapter<Album> = createEntityAdapter<Album>();
 export const initialState: AlbumsState = adapter.getInitialState({
   selectedAlbumId: null,
-  loading: false,
+  loading: false
 });
 
-export function albumsReducer(state = initialState, action: AlbumsActions) {
+export function albumsReducer(
+  state = initialState,
+  action: AlbumsActions
+): AlbumsState {
   switch (action.type) {
-      case AlbumsActionTypes.LoadAlbums: {
-          return {
-              ...state,
-              loading: true,
-          }
-      }
+    case AlbumsActionTypes.AlbumSelected: {
+      return Object.assign({}, state, { selectedAlbumId: action.payload });
+    }
+    case AlbumsActionTypes.LoadAlbums: {
+      return {
+        ...state,
+        loading: true
+      };
+    }
     case AlbumsActionTypes.AlbumsLoaded: {
-      return adapter.addAll(action.payload, {...state, loading: false});
+      return adapter.addAll(action.payload, { ...state, loading: false });
     }
     default:
       return state;
   }
+  case
 }
 
 export const getSelectedAlbumId = (state: AlbumsState) => state.selectedAlbumId;
 
 //Simple selectors
 export const {
-selectIds: selectedAlbumIds,
-selectEntities: selectAlbumEntities,
-selectAll: selectAllAlbums,
-selectTotal: selectAlbumTotal
+  selectIds: selectedAlbumIds,
+  selectEntities: selectAlbumEntities,
+  selectAll: selectAllAlbums,
+  selectTotal: selectAlbumTotal
 } = adapter.getSelectors();

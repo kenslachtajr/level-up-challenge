@@ -20,7 +20,7 @@ albums : fromAlbums.albumsReducer
 // ALBUMS SELECTORS
 // -------------------------------------------------------------------
 
-export const selectAlbumsState = createFeatureSelector<fromAlbums.AlbumsState>('projects');
+export const selectAlbumsState = createFeatureSelector<fromAlbums.AlbumsState>('albums');
 
 export const selectAllAlbums = createSelector(
     selectAlbumsState,

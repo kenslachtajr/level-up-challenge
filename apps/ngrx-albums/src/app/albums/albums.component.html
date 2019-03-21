@@ -1,6 +1,12 @@
 <div class="wrapper">
-  <div class="list-grid"><workspace-albums-list> </workspace-albums-list></div>
   <div class="list-grid">
+    <workspace-albums-list
+      [albums]="albums$ | async"
+      [isLoading]="loading$ | async"
+    >
+    </workspace-albums-list>
+  </div>
+  <div class="details-grid">
     <workspace-album-details></workspace-album-details>
   </div>
 </div>

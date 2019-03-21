@@ -1,9 +1,11 @@
 <mat-card>
+  <mat-progress-bar *ngIf="isLoading" mode="indeterminate"></mat-progress-bar>
   <mat-list>
-    <h3 mat-subheader>Jazz Albums</h3>
-    <mat-list-item class="mat-list-option">
-      <h4 mat-line>item</h4>
-      <button mat-min-fab color="accent" class="mat-pseudo-checkbox">
+    <h3 mat-subheader>Albums</h3>
+    <mat-list-item class="mat-list-option" *ngFor="let album of albums">
+      <h4 mat-line><strong>Album Title: </strong>{{ album.title }}</h4>
+      <p mat-line><strong>Artist: </strong>{{ album.artist }}</p>
+      <button mat-mini-fab color="accent" class="mat-pseudo-checkbox">
         <mat-icon>clear</mat-icon>
       </button>
     </mat-list-item>

@@ -12,6 +12,7 @@ import { AlbumDetailsComponent } from './albums/album-details/album-details.comp
 import { LoginComponent } from './login/login.component';
 import { AlbumsComponent } from './albums/albums.component';
 import { RoutingModule } from './routing.module';
+import { CoreStateModule } from '@workspace/core-state';
 
 @NgModule({
   declarations: [
@@ -24,10 +25,11 @@ import { RoutingModule } from './routing.module';
     BrowserModule,
     FormsModule,
     CoreDataModule,
+    CoreStateModule,
     MaterialModule,
     UiToolbarModule,
     UiLoginModule,
-    RoutingModule
+    RoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
