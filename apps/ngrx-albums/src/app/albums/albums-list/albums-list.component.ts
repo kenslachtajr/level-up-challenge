@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Album } from '@workspace/core-data';
 
 @Component({
@@ -9,4 +9,14 @@ import { Album } from '@workspace/core-data';
 export class AlbumsListComponent {
   @Input() albums: Album[];
   @Input() isLoading: boolean;
+  @Output() selected = new EventEmitter();
+  @Output() deleted = new EventEmitter();
+
+  selectAlbum(album: Album) {
+    this.selected.emit(album);
+  }
+
+  deleteAlbum(album: Album) {
+    this.deleted.emit(album);
+  }
 }

@@ -3,10 +3,16 @@
     <workspace-albums-list
       [albums]="albums$ | async"
       [isLoading]="loading$ | async"
+      (selected)="selectAlbum($event)"
+      (deleted)="deleteAlbum($event)"
     >
     </workspace-albums-list>
   </div>
   <div class="details-grid">
-    <workspace-album-details></workspace-album-details>
+    <workspace-album-details
+      [group]="form"
+      (saved)="saveAlbum($event)"
+      (canceled)="reset()"
+    ></workspace-album-details>
   </div>
 </div>

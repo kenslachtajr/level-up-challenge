@@ -4,7 +4,7 @@ import { CoreDataModule } from '@workspace/core-data';
 import { MaterialModule } from '@workspace/material';
 import { UiToolbarModule } from '@workspace/ui-toolbar';
 import { UiLoginModule } from '@workspace/ui-login';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { AlbumsListComponent } from './albums/albums-list/albums-list.component';
@@ -24,6 +24,7 @@ import { CoreStateModule } from '@workspace/core-state';
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     CoreDataModule,
     CoreStateModule,
     MaterialModule,

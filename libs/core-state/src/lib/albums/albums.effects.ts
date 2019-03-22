@@ -44,9 +44,9 @@ export class AlbumsEffects {
   });
 
   @Effect()
-  deleteAlbum$ = this.dataPersistence.fetch(AlbumsActionTypes.DeleteAlbum, {
+  deleteAlbum$ = this.dataPersistence.pessimisticUpdate(AlbumsActionTypes.DeleteAlbum, {
     run: (action: DeleteAlbum, state: AlbumsState) => {
-        return this.albumsService.delete(action.payload.id).pipe(map((res: Album) => new AlbumDeleted(res)));
+        return this.albumsService.delete(action.payload.id).pipe(map(_ => new AlbumDeleted(action.payload)));
     },
 
     onError: (action: DeleteAlbum, error) => {

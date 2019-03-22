@@ -2,7 +2,6 @@ import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
 import { Album } from '@workspace/core-data';
 
 import { AlbumsActions, AlbumsActionTypes } from './albums.actions';
-import { State } from '@ngrx/store';
 
 export interface AlbumsState extends EntityState<Album> {
   selectedAlbumId: number | null;
@@ -23,24 +22,58 @@ export function albumsReducer(
     case AlbumsActionTypes.AlbumSelected: {
       return Object.assign({}, state, { selectedAlbumId: action.payload });
     }
+
     case AlbumsActionTypes.LoadAlbums: {
       return {
         ...state,
         loading: true
       };
     }
+
     case AlbumsActionTypes.AlbumsLoaded: {
       return adapter.addAll(action.payload, { ...state, loading: false });
     }
+
+    case AlbumsActionTypes.CreateAlbum: {
+      return {
+        ...state,
+        loading: true
+      };
+    }
+
+    case AlbumsActionTypes.AlbumCreated: {
+      return adapter.addOne(action.payload, {...state, loading: false});
+    }
+
+    case AlbumsActionTypes.UpdateAlbum: {
+      return {
+        ...state,
+        loading: true
+      };
+    }
+
+    case AlbumsActionTypes.AlbumUpdated: {
+      return adapter.upsertOne(action.payload, {...state, loading: false});
+    }
+
+    case AlbumsActionTypes.DeleteAlbum: {
+      return {
+        ...state,
+        loading: true
+      };
+    }
+
+    case AlbumsActionTypes.AlbumDeleted: {
+      return adapter.removeOne(action.payload.id, {...state, loading: false});
+    }
+
     default:
       return state;
   }
-  case
 }
 
 export const getSelectedAlbumId = (state: AlbumsState) => state.selectedAlbumId;
 
-//Simple selectors
 export const {
   selectIds: selectedAlbumIds,
   selectEntities: selectAlbumEntities,
