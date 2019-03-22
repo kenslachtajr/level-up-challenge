@@ -10,17 +10,17 @@ import { UiLoginModule } from '@workspace/ui-login';
 import { RoutingModule } from './routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
-import { ColorsComponent } from './colors/colors.component';
-import { ColorsDetailsComponent } from './colors/colors-details/colors-details.component';
-import { ColorsListComponent } from './colors/colors-list/colors-list.component';
+import { CitiesComponent } from './cities/cities.component';
+import { CitiesDetailsComponent } from './cities/cities-details/cities-details.component';
+import { CitiesListComponent } from './cities/cities-list/cities-list.component';
 
 @NgModule({
   declarations: [
     AppComponent, 
     LoginComponent, 
-    ColorsComponent, 
-    ColorsDetailsComponent, 
-    ColorsListComponent, 
+    CitiesComponent, 
+    CitiesDetailsComponent, 
+    CitiesListComponent, 
   ],
   imports: [
     BrowserModule,

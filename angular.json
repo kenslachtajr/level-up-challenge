@@ -1685,6 +1685,124 @@
           }
         }
       }
+    },
+    "ngrx-cities": {
+      "root": "apps/ngrx-cities/",
+      "sourceRoot": "apps/ngrx-cities/src",
+      "projectType": "application",
+      "prefix": "workspace",
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "style": "sass"
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/ngrx-cities",
+            "index": "apps/ngrx-cities/src/index.html",
+            "main": "apps/ngrx-cities/src/main.ts",
+            "polyfills": "apps/ngrx-cities/src/polyfills.ts",
+            "tsConfig": "apps/ngrx-cities/tsconfig.app.json",
+            "assets": [
+              "apps/ngrx-cities/src/favicon.ico",
+              "apps/ngrx-cities/src/assets"
+            ],
+            "styles": ["apps/ngrx-cities/src/styles.scss"],
+            "scripts": [],
+            "es5BrowserSupport": true
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/ngrx-cities/src/environments/environment.ts",
+                  "with": "apps/ngrx-cities/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ngrx-cities:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ngrx-cities:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ngrx-cities:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/ngrx-cities/tsconfig.app.json",
+              "apps/ngrx-cities/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/builders:jest",
+          "options": {
+            "jestConfig": "apps/ngrx-cities/jest.config.js",
+            "tsConfig": "apps/ngrx-cities/tsconfig.spec.json",
+            "setupFile": "apps/ngrx-cities/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "ngrx-cities-e2e": {
+      "root": "apps/ngrx-cities-e2e",
+      "projectType": "application",
+      "prefix": "",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/builders:cypress",
+          "options": {
+            "cypressConfig": "apps/ngrx-cities-e2e/cypress.json",
+            "tsConfig": "apps/ngrx-cities-e2e/tsconfig.e2e.json",
+            "devServerTarget": "ngrx-cities:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ngrx-cities:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "apps/ngrx-cities-e2e/tsconfig.e2e.json",
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      }
     }
   },
   "cli": {

@@ -1,0 +1,60 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Create/Edit City</mat-card-title>
+  </mat-card-header>
+  <form (submit)="saved.emit(group.value)" [formGroup]="group">
+    <mat-card-content>
+      <mat-form-field appearance="outline">
+        <mat-label>City Name</mat-label>
+        <input
+          formControlName="name"
+          matInput
+          type="text"
+          placeholder="Enter City name"
+          name="city name"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>State</mat-label>
+        <input
+          formControlName="state"
+          matInput
+          type="text"
+          placeholder="Enter state"
+          name="state name"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Population</mat-label>
+        <input
+          formControlName="population"
+          matInput
+          type="text"
+          placeholder="Enter city population"
+          name="city population"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Nickname</mat-label>
+        <input
+          formControlName="nickname"
+          matInput
+          type="text"
+          placeholder="Enter City nickname"
+          name="city nickname"
+        />
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit">Submit</button>
+      <button
+        mat-raised-button
+        color="accent"
+        (click)="cancelled.emit()"
+        type="reset"
+      >
+        Cancel
+      </button>
+    </mat-card-actions>
+  </form>
+</mat-card>

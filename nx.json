@@ -100,6 +100,12 @@
     },
     "ngrx-albums-e2e": {
       "tags": []
+    },
+    "ngrx-cities": {
+      "tags": ["cities"]
+    },
+    "ngrx-cities-e2e": {
+      "tags": []
     }
   }
 }
