@@ -3,7 +3,7 @@ import { ActionsSubject, select, Store } from '@ngrx/store';
 import { filter } from 'rxjs/operators';
 import { AlbumsState } from './albums.reducer';
 import * as AlbumsAction from './albums.actions';
-import { selectAllAlbums, selectLoadingState, selectCurrentAlbum } from '..';
+import { selectAllAlbums, selectAlbumLoadingState, selectCurrentAlbum } from '..';
 import { Album } from '@workspace/core-data';
 import { AlbumsActionTypes } from './albums.actions';
 
@@ -13,7 +13,7 @@ import { AlbumsActionTypes } from './albums.actions';
 export class AlbumsFacade {
   allAlbums$ = this.store.pipe(select(selectAllAlbums));
   currentAlbum$ = this.store.pipe(select(selectCurrentAlbum));
-  albumsLoading$ = this.store.pipe(select(selectLoadingState));
+  albumsLoading$ = this.store.pipe(select(selectAlbumLoadingState));
 
   mutations$ = this.actions$
   .pipe(

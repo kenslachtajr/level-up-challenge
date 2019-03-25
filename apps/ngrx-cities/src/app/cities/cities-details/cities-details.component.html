@@ -2,7 +2,7 @@
   <mat-card-header>
     <mat-card-title>Create/Edit City</mat-card-title>
   </mat-card-header>
-  <form (submit)="saved.emit(group.value)" [formGroup]="group">
+  <form (submit)="saveCity(group.value)" [formGroup]="group">
     <mat-card-content>
       <mat-form-field appearance="outline">
         <mat-label>City Name</mat-label>
@@ -50,7 +50,7 @@
       <button
         mat-raised-button
         color="accent"
-        (click)="cancelled.emit()"
+        (click)="canceled.emit()"
         type="reset"
       >
         Cancel

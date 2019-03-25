@@ -8,6 +8,15 @@ import { City } from '@workspace/core-data';
 })
 export class CitiesListComponent {
   @Input() cities: City[];
+  @Input() isLoading: boolean;
   @Output() selected = new EventEmitter();
   @Output() deleted = new EventEmitter();
+
+  selectCity(city: City) {
+    this.selected.emit(city);
+  }
+
+  deleteCity(city: City) {
+    this.deleted.emit(city);
+  }
 }

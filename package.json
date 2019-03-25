@@ -20,6 +20,7 @@
     "deploy:operas": "npm run build --project operas && cp ./dist/apps/operas/index.html ./dist/apps/operas/200.html && surge ./dist/apps/operas/ https://operas.surge.sh",
     "deploy:albums": "npm run build --project albums && cp ./dist/apps/albums/index.html ./dist/apps/albums/200.html && surge ./dist/apps/albums/ https://albums.surge.sh",
     "deploy:ngrx-albums": "npm run build --project ngrx-albums && cp ./dist/apps/ngrx-albums/index.html ./dist/apps/ngrx-albums/200.html && surge ./dist/apps/ngrx-albums/ https://ngrx-albums.surge.sh",
+    "deploy:ngrx-cities": "npm run build --project ngrx-cities && cp ./dist/apps/ngrx-cities/index.html ./dist/apps/ngrx-cities/200.html && surge ./dist/apps/ngrx-cities/ https://ngrx-cities.surge.sh",
     "test": "ng test",
     "lint": "./node_modules/.bin/nx lint && ng lint",
     "e2e": "ng e2e",

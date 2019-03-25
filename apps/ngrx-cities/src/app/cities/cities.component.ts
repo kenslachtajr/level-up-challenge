@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { CitiesFacade } from '@workspace/core-state';
+import { FormBuilder, FormGroup, Validator } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { City, CitiesService } from '@workspace/core-data';
-import { group } from '@angular/animations';
+import { City } from '@workspace/core-data';
 
 @Component({
   selector: 'workspace-cities',
@@ -10,52 +10,53 @@ import { group } from '@angular/animations';
   styleUrls: ['./cities.component.scss']
 })
 export class CitiesComponent implements OnInit {
-  city: City;
-  cities$: Observable<City[]>;
+  cities$: Observable<City[]> = this.citiesFacade.allCities$;
+  city$: Observable<City> = this.citiesFacade.currentCity$;
+  loading$: Observable<boolean> = this.citiesFacade.citiesLoading$;
   form: FormGroup;
 
   constructor(
-    private citiesService: CitiesService,
+    private citiesFacade: CitiesFacade,
     private formBuilder: FormBuilder
   ) {}
 
   ngOnInit() {
-    this.getCities();
+    this.citiesFacade.loadCities();
+    this.citiesFacade.mutations$.subscribe(_ => this.reset());
     this.initForm();
   }
 
   selectCity(city: City) {
-    this.city = city;
     this.form.patchValue(city);
+    this.citiesFacade.selectCity(city.id);
   }
 
-  getCities() {
-    this.cities$ = this.citiesService.get();
-  }
+  // getCities() {
+  //   this.cities$ = this.citiesService.get();
+  // }
 
   saveCity(city: City) {
-    city.id ? this.updateCity(city) : this.createCity(city);
+    if (this.form.valid) {
+      city.id ? this.citiesFacade.updateCity(city) : this.citiesFacade.addCity(city);
+    }
   }
 
-  createCity(city: City) {
-    this.citiesService.create(city).subscribe(res => {
-      this.reset();
-      this.getCities();
-    });
-  }
+  // createCity(city: City) {
+  //   this.citiesService.create(city).subscribe(res => {
+  //     this.reset();
+  //     this.getCities();
+  //   });
+  // }
 
-  updateCity(city: City) {
-    this.citiesService.update(city).subscribe(res => {
-      this.reset();
-      this.getCities();
-    });
-  }
+  // updateCity(city: City) {
+  //   this.citiesService.update(city).subscribe(res => {
+  //     this.reset();
+  //     this.getCities();
+  //   });
+  // }
 
-  deleteCity(cityId: number) {
-    this.citiesService.delete(cityId).subscribe(res => {
-      this.reset();
-      this.getCities();
-    });
+  deleteCity(city: City) {
+    this.citiesFacade.deleteCity(city);
   }
 
   reset() {

@@ -8,13 +8,15 @@ import { City } from '@workspace/core-data';
   styleUrls: ['./cities-details.component.scss']
 })
 export class CitiesDetailsComponent {
-  currentCity: City;
   @Input() group: FormGroup;
-
-  @Input()
-  set selectCity(value: City) {
-    this.currentCity = Object.assign({}, value);
-  }
-  @Output() cancelled = new EventEmitter();
+  @Output() canceled = new EventEmitter();
   @Output() saved = new EventEmitter();
+
+  saveCity(city: City) {
+    this.saved.emit(city);
+  }
+
+  cancel() {
+    this.canceled.emit();
+  }
 }

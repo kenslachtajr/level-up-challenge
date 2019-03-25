@@ -1,10 +1,11 @@
 <mat-card>
+  <mat-progress-bar *ngIf="isLoading" mode="indeterminate"></mat-progress-bar>
   <mat-list>
     <h3 mat-subheader>Cities</h3>
     <mat-list-item
-      *ngFor="let city of cities"
       class="mat-list-option"
-      (click)="selected.emit(city)"
+      *ngFor="let city of cities"
+      (click)="selectCity(city)"
     >
       <h4 mat-line><strong>City Name: </strong>{{ city.name }}</h4>
       <p mat-line><strong>City Population: </strong>{{ city.population }}</p>
@@ -12,7 +13,7 @@
         mat-mini-fab
         color="accent"
         class="mat-pseudo-checkbox"
-        (click)="deleted.emit(city.id)"
+        (click)="deleteCity(city); $event.stopImmediatePropagation()"
       >
         <mat-icon> clear </mat-icon>
       </button>

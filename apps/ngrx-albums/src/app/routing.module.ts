@@ -9,7 +9,6 @@ const routes: Route[] = [
   { path: 'albums', component: AlbumsComponent },
   { path: 'login', component: LoginComponent },
   { path: '**', redirectTo: '/albums', pathMatch: 'full' }
-
 ]
 
 @NgModule({

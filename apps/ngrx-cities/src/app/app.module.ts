@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { CoreDataModule } from '@workspace/core-data';
+import { CoreStateModule } from '@workspace/core-state';
 import { MaterialModule } from '@workspace/material';
 import { UiToolbarModule } from '@workspace/ui-toolbar';
 import { UiLoginModule } from '@workspace/ui-login';
@@ -27,6 +28,7 @@ import { CitiesListComponent } from './cities/cities-list/cities-list.component'
     FormsModule,
     ReactiveFormsModule,
     CoreDataModule,
+    CoreStateModule,
     MaterialModule,
     UiToolbarModule,
     UiLoginModule,

@@ -7,6 +7,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { reducers } from '.';
 import { CoreDataModule } from '@workspace/core-data';
 import { AlbumsEffects } from './albums/albums.effects';
+import { CitiesEffects } from './cities/cities.effects';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { AlbumsEffects } from './albums/albums.effects';
     StoreModule.forRoot(reducers),
     StoreDevtoolsModule.instrument({ maxAge: 10 }),
     EffectsModule.forRoot([
-      AlbumsEffects
+      AlbumsEffects,
+      CitiesEffects
     ]),
   ]
 })

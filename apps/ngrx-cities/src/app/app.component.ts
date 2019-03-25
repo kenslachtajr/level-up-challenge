@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Ten Largest US Cities';
   links = [
-    { path: '/login', icon: 'person', label: 'Login' },
-    { path: '/cities', icon: 'loyalty', label: 'Cities' }
+    { path: '/cities', icon: 'loyalty', label: 'Cities' },
+    { path: '/login', icon: 'person', label: 'Login' }
   ]
 }

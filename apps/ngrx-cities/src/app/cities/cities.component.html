@@ -2,6 +2,7 @@
   <div class="list-grid">
     <workspace-cities-list
       [cities]="cities$ | async"
+      [isLoading]="loading$ | async"
       (selected)="selectCity($event)"
       (deleted)="deleteCity($event)"
     >
@@ -10,9 +11,8 @@
   <div class="details-grid">
     <workspace-cities-details
       [group]="form"
-      [selectCity]="city"
-      (cancelled)="reset()"
       (saved)="saveCity($event)"
+      (canceled)="reset()"
     >
     </workspace-cities-details>
   </div>
