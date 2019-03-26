@@ -2,7 +2,6 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Observable } from 'rxjs';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Color, ColorsService } from '@workspace/core-data';
-import { group } from '@angular/animations';
 
 @Component({
   selector: 'workspace-colors',

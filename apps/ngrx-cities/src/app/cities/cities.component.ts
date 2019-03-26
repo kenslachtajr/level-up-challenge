@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CitiesFacade } from '@workspace/core-state';
-import { FormBuilder, FormGroup, Validator } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { City } from '@workspace/core-data';
 
@@ -31,29 +31,11 @@ export class CitiesComponent implements OnInit {
     this.citiesFacade.selectCity(city.id);
   }
 
-  // getCities() {
-  //   this.cities$ = this.citiesService.get();
-  // }
-
   saveCity(city: City) {
     if (this.form.valid) {
       city.id ? this.citiesFacade.updateCity(city) : this.citiesFacade.addCity(city);
     }
   }
-
-  // createCity(city: City) {
-  //   this.citiesService.create(city).subscribe(res => {
-  //     this.reset();
-  //     this.getCities();
-  //   });
-  // }
-
-  // updateCity(city: City) {
-  //   this.citiesService.update(city).subscribe(res => {
-  //     this.reset();
-  //     this.getCities();
-  //   });
-  // }
 
   deleteCity(city: City) {
     this.citiesFacade.deleteCity(city);

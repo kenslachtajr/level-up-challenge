@@ -1,0 +1,70 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Create/Edit Painter</mat-card-title>
+  </mat-card-header>
+  <form (submit)="savePainter(group.value)" [formGroup]="group">
+    <mat-card-content>
+      <mat-form-field appearance="outline">
+        <mat-label>Painter Name</mat-label>
+        <input
+          formControlName="name"
+          matInput
+          type="text"
+          placeholder="Enter painter name"
+          name="painter name"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Era</mat-label>
+        <input
+          formControlName="era"
+          matInput
+          type="text"
+          placeholder="Enter era"
+          name="era"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Years Lived</mat-label>
+        <input
+          formControlName="yearsLived"
+          matInput
+          type="text"
+          placeholder="Years lived"
+          name="years lived"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Dates Lived</mat-label>
+        <input
+          formControlName="datesLived"
+          matInput
+          type="text"
+          placeholder="Dates lived"
+          name="dates lived"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Famous Work</mat-label>
+        <input
+          formControlName="work"
+          matInput
+          type="text"
+          placeholder="Famous Work"
+          name="famous work"
+        />
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit">Submit</button>
+      <button
+        mat-raised-button
+        color="accent"
+        (click)="cancelled.emit()"
+        type="reset"
+      >
+        Cancel
+      </button>
+    </mat-card-actions>
+  </form>
+</mat-card>

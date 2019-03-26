@@ -106,6 +106,12 @@
     },
     "ngrx-cities-e2e": {
       "tags": []
+    },
+    "ngrx-painters": {
+      "tags": ["painters"]
+    },
+    "ngrx-painters-e2e": {
+      "tags": []
     }
   }
 }

@@ -1,0 +1,22 @@
+<mat-card>
+  <mat-progress-bar *ngIf="isLoading" mode="indeterminate"></mat-progress-bar>
+  <mat-list>
+    <h3 mat-subheader>Painters</h3>
+    <mat-list-item
+      class="mat-list-option"
+      *ngFor="let painter of painters"
+      (click)="selectPainter(painter)"
+    >
+      <h4 mat-line><strong>Painter Name: </strong>{{ painter.name }}</h4>
+      <p mat-line><strong>Famous Work: </strong>{{ painter.work }}</p>
+      <button
+        mat-mini-fab
+        color="accent"
+        class="mat-pseudo-checkbox"
+        (click)="deletePainter(painter); $event.stopImmediatePropagation()"
+      >
+        <mat-icon> clear </mat-icon>
+      </button>
+    </mat-list-item>
+  </mat-list>
+</mat-card>

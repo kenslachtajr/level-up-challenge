@@ -11,6 +11,7 @@ import { DrugStoreService } from './drug-store/drug-store.service';
 import { ColorsService } from './colors/colors.service';
 import { PianoBrandsService } from './piano-brands/piano-brands.service';
 import { CitiesService } from './cities/cities.service';
+import { PaintersService } from './painters/painters.service';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -26,7 +27,8 @@ import { HttpClientModule } from '@angular/common/http';
     DrugStoreService, 
     ColorsService, 
     PianoBrandsService,
-    CitiesService
+    CitiesService,
+    PaintersService
   ],
   exports: [HttpClientModule]
 })

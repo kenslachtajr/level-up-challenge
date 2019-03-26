@@ -1,0 +1,19 @@
+<div class="wrapper">
+  <div class="list-grid">
+    <workspace-painters-list
+      [painters]="painters$ | async"
+      [isLoading]="loading$ | async"
+      (selected)="selectPainter($event)"
+      (deleted)="deletePainter($event)"
+    >
+    </workspace-painters-list>
+  </div>
+  <div class="details-grid">
+    <workspace-painters-details
+      [group]="form"
+      (saved)="savePainter($event)"
+      (cancelled)="reset()"
+    >
+    </workspace-painters-details>
+  </div>
+</div>

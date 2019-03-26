@@ -7,7 +7,7 @@ import { Color } from '@workspace/core-data';
   styleUrls: ['./colors-list.component.scss']
 })
 export class ColorsListComponent {
-@Input() colors: Color[];
-@Output() selected = new EventEmitter();
-@Output() deleted = new EventEmitter();
+  @Input() colors: Color[];
+  @Output() selected = new EventEmitter();
+  @Output() deleted = new EventEmitter();
 }

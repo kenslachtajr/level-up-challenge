@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Actions, Effect } from '@ngrx/effects';
-import { map, onErrorResumeNext } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { DataPersistence } from '@nrwl/nx';
 
 import { City, CitiesService } from '@workspace/core-data';
