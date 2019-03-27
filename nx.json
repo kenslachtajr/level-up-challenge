@@ -112,6 +112,12 @@
     },
     "ngrx-painters-e2e": {
       "tags": []
+    },
+    "ngrx-literature": {
+      "tags": ["literature"]
+    },
+    "ngrx-literature-e2e": {
+      "tags": []
     }
   }
 }

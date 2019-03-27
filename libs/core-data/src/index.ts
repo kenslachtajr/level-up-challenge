@@ -14,6 +14,7 @@ export { Opera } from './lib/operas/opera.model';
 export { Album } from './lib/albums/album.model';
 export { City } from './lib/cities/city.model';
 export { Painter } from './lib/painters/painter.model';
+export { Literature } from './lib/literature/literature.model';
 
 export { TodoService } from './lib/todo/todo.service';
 export { EmployeesService } from './lib/employees/employees.service';
@@ -29,3 +30,4 @@ export { OperasService } from './lib/operas/operas.service';
 export { AlbumsService } from './lib/albums/albums.service';
 export { CitiesService } from './lib/cities/cities.service';
 export { PaintersService } from './lib/painters/painters.service';
+export { LiteratureService } from './lib/literature/literature.service';

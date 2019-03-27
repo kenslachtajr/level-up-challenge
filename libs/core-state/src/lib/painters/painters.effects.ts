@@ -32,7 +32,8 @@ export class PaintersEffects {
       onError: (action: LoadPainters, error) => {
         console.error('error', error);
       }
-    });
+    }
+  );
 
   @Effect()
   createPainter$ = this.dataPersistence.pessimisticUpdate(

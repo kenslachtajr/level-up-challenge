@@ -1,0 +1,60 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Create/Edit Author</mat-card-title>
+  </mat-card-header>
+  <form (submit)="saveLiterature(group.value)" [formGroup]="group">
+    <mat-card-content>
+      <mat-form-field appearance="outline">
+        <mat-label>Author Name</mat-label>
+        <input
+          formControlName="author"
+          matInput
+          type="text"
+          placeholder="Author name"
+          name="author name"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Famous Work</mat-label>
+        <input
+          formControlName="work"
+          matInput
+          type="text"
+          placeholder="Famous work"
+          name="work"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Era</mat-label>
+        <input
+          formControlName="era"
+          matInput
+          type="text"
+          placeholder="Era"
+          name="era"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Years Lived</mat-label>
+        <input
+          formControlName="lived"
+          matInput
+          type="text"
+          placeholder="Years lived"
+          name="years lived"
+        />
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit">Submit</button>
+      <button
+        mat-raised-button
+        color="accent"
+        (click)="cancelled.emit()"
+        type="reset"
+      >
+        Cancel
+      </button>
+    </mat-card-actions>
+  </form>
+</mat-card>

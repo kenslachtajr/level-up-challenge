@@ -7,21 +7,25 @@ import {
 import * as fromAlbums from './albums/albums.reducer';
 import * as fromCities from './cities/cities.reducer';
 import * as fromPainters from './painters/painters.reducer';
+import * as fromLiterature from './literature/literature.reducer';
 
 import { Album } from '@workspace/core-data';
 import { City } from '@workspace/core-data';
 import { Painter } from '@workspace/core-data';
+import { Literature } from '@workspace/core-data';
 
 export interface AppState {
   albums: fromAlbums.AlbumsState;
   cities: fromCities.CitiesState;
   painters: fromPainters.PaintersState;
+  literature: fromLiterature.LiteratureState;
 }
 
 export const reducers: ActionReducerMap<AppState> = {
   albums: fromAlbums.albumsReducer,
   cities: fromCities.citiesReducer,
-  painters: fromPainters.paintersReducer
+  painters: fromPainters.paintersReducer,
+  literature: fromLiterature.literatureReducer
 };
 
 // -------------------------------------------------------------------
@@ -164,5 +168,52 @@ export const selectCurrentPainter = createSelector(
 
 export const selectPainterLoadingState = createSelector(
   selectPaintersState,
+  state => state.loading
+);
+
+//literature selectors
+
+export const selectLiteratureState = createFeatureSelector<
+  fromLiterature.LiteratureState
+>('literature');
+
+export const selectLiteratureIds = createSelector(
+  selectLiteratureState,
+  fromLiterature.selectedLiteratureIds
+);
+
+export const selectLiteratureEntities = createSelector(
+  selectLiteratureState,
+  fromLiterature.selectLiteratureEntities
+);
+
+export const selectAllLiterature = createSelector(
+  selectLiteratureState,
+  fromLiterature.selectAllLiterature
+);
+
+export const selectCurrentLiteratureId = createSelector(
+  selectLiteratureState,
+  fromLiterature.getSelectedLiteratureId
+);
+
+export const emptyLiterature: Literature = {
+  id: null,
+  author: '',
+  work: '',
+  era: '',
+  lived: null
+};
+
+export const selectCurrentLiterature = createSelector(
+  selectLiteratureEntities,
+  selectCurrentLiteratureId,
+  (literatureEntities, literatureId) => {
+    return literatureId ? literatureEntities[literatureId] : emptyLiterature;
+  }
+);
+
+export const selectLiteratureLoadingState = createSelector(
+  selectLiteratureState,
   state => state.loading
 );

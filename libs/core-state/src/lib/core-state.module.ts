@@ -9,6 +9,7 @@ import { CoreDataModule } from '@workspace/core-data';
 import { AlbumsEffects } from './albums/albums.effects';
 import { CitiesEffects } from './cities/cities.effects';
 import { PaintersEffects } from './painters/painters.effects';
+import { LiteratureEffects } from './literature/literature.effects';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { PaintersEffects } from './painters/painters.effects';
     EffectsModule.forRoot([
       AlbumsEffects,
       CitiesEffects,
-      PaintersEffects
+      PaintersEffects,
+      LiteratureEffects
     ]),
   ]
 })

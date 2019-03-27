@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Painter } from './painter.model';
 import { Observable } from 'rxjs';
 
-const BASE_URL = "https://level-up-data.herokuapp.com/";
+const BASE_URL = 'https://level-up-data.herokuapp.com/';
 const model = 'painters';
 
 @Injectable({
@@ -29,7 +29,7 @@ export class PaintersService {
   }
 
   private getForUrl() {
-    return `${BASE_URL}${model}`
+    return `${BASE_URL}${model}`;
   }
 
   private getForUrlId(id: number) {

@@ -1,0 +1,19 @@
+<div class="wrapper">
+  <div class="list-grid">
+    <workspace-literature-list
+      [literatures]="literatures$ | async"
+      [isLoading]="loading$ | async"
+      (selected)="selectLiterature($event)"
+      (deleted)="deleteLiterature($event)"
+    >
+    </workspace-literature-list>
+  </div>
+  <div class="details-grid">
+    <workspace-literature-details
+      [group]="form"
+      (saved)="saveLiterature($event)"
+      (cancelled)="reset()"
+    >
+    </workspace-literature-details>
+  </div>
+</div>

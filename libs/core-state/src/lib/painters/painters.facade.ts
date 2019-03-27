@@ -3,50 +3,53 @@ import { ActionsSubject, select, Store } from '@ngrx/store';
 import { filter } from 'rxjs/operators';
 import { PaintersState } from './painters.reducer';
 import * as PaintersAction from './painters.actions';
-import { selectAllPainters, selectPainterLoadingState, selectCurrentPainter } from '..';
+import {
+  selectAllPainters,
+  selectPainterLoadingState,
+  selectCurrentPainter
+} from '..';
 import { Painter } from '@workspace/core-data';
 import { PaintersActionTypes } from './painters.actions';
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root'
 })
-
 export class PaintersFacade {
-    allPainters$ = this.store.pipe(select(selectAllPainters));
-    currentPainter$ = this.store.pipe(select(selectCurrentPainter));
-    paintersLoading$ = this.store.pipe(select(selectPainterLoadingState));
+  allPainters$ = this.store.pipe(select(selectAllPainters));
+  currentPainter$ = this.store.pipe(select(selectCurrentPainter));
+  paintersLoading$ = this.store.pipe(select(selectPainterLoadingState));
 
-    mutations$ = this.actions$.pipe(
-        filter(
-            action =>
-            action.type === PaintersActionTypes.CreatePainter ||
-            action.type === PaintersActionTypes.UpdatePainter ||
-            action.type === PaintersActionTypes.DeletePainter
-        )
-    );
+  mutations$ = this.actions$.pipe(
+    filter(
+      action =>
+        action.type === PaintersActionTypes.CreatePainter ||
+        action.type === PaintersActionTypes.UpdatePainter ||
+        action.type === PaintersActionTypes.DeletePainter
+    )
+  );
 
-    constructor(
-        private store: Store<PaintersState>,
-        private actions$: ActionsSubject
-    ) {}
+  constructor(
+    private store: Store<PaintersState>,
+    private actions$: ActionsSubject
+  ) {}
 
-    selectPainter(id) {
-        this.store.dispatch(new PaintersAction.PainterSelected(id));
-    }
+  selectPainter(id) {
+    this.store.dispatch(new PaintersAction.PainterSelected(id));
+  }
 
-    loadPainters() {
-        this.store.dispatch(new PaintersAction.LoadPainters());
-    }
+  loadPainters() {
+    this.store.dispatch(new PaintersAction.LoadPainters());
+  }
 
-    addPainter(painter: Painter) {
-        this.store.dispatch(new PaintersAction.CreatePainter(painter));
-    }
+  addPainter(painter: Painter) {
+    this.store.dispatch(new PaintersAction.CreatePainter(painter));
+  }
 
-    updatePainter(painter: Painter) {
-        this.store.dispatch(new PaintersAction.UpdatePainter(painter));
-    }
+  updatePainter(painter: Painter) {
+    this.store.dispatch(new PaintersAction.UpdatePainter(painter));
+  }
 
-    deletePainter(painter: Painter) {
-        this.store.dispatch(new PaintersAction.DeletePainter(painter));
-    }
+  deletePainter(painter: Painter) {
+    this.store.dispatch(new PaintersAction.DeletePainter(painter));
+  }
 }
