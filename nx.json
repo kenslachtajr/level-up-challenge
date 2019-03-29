@@ -118,6 +118,12 @@
     },
     "ngrx-literature-e2e": {
       "tags": []
+    },
+    "ngrx-pokemon": {
+      "tags": ["pokemon"]
+    },
+    "ngrx-pokemon-e2e": {
+      "tags": []
     }
   }
 }

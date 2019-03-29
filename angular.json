@@ -2039,6 +2039,124 @@
           }
         }
       }
+    },
+    "ngrx-pokemon": {
+      "root": "apps/ngrx-pokemon/",
+      "sourceRoot": "apps/ngrx-pokemon/src",
+      "projectType": "application",
+      "prefix": "workspace",
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "style": "sass"
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/ngrx-pokemon",
+            "index": "apps/ngrx-pokemon/src/index.html",
+            "main": "apps/ngrx-pokemon/src/main.ts",
+            "polyfills": "apps/ngrx-pokemon/src/polyfills.ts",
+            "tsConfig": "apps/ngrx-pokemon/tsconfig.app.json",
+            "assets": [
+              "apps/ngrx-pokemon/src/favicon.ico",
+              "apps/ngrx-pokemon/src/assets"
+            ],
+            "styles": ["apps/ngrx-pokemon/src/styles.scss"],
+            "scripts": [],
+            "es5BrowserSupport": true
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/ngrx-pokemon/src/environments/environment.ts",
+                  "with": "apps/ngrx-pokemon/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ngrx-pokemon:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ngrx-pokemon:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ngrx-pokemon:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/ngrx-pokemon/tsconfig.app.json",
+              "apps/ngrx-pokemon/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/builders:jest",
+          "options": {
+            "jestConfig": "apps/ngrx-pokemon/jest.config.js",
+            "tsConfig": "apps/ngrx-pokemon/tsconfig.spec.json",
+            "setupFile": "apps/ngrx-pokemon/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "ngrx-pokemon-e2e": {
+      "root": "apps/ngrx-pokemon-e2e",
+      "projectType": "application",
+      "prefix": "",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/builders:cypress",
+          "options": {
+            "cypressConfig": "apps/ngrx-pokemon-e2e/cypress.json",
+            "tsConfig": "apps/ngrx-pokemon-e2e/tsconfig.e2e.json",
+            "devServerTarget": "ngrx-pokemon:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ngrx-pokemon:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "apps/ngrx-pokemon-e2e/tsconfig.e2e.json",
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      }
     }
   },
   "cli": {

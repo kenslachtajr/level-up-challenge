@@ -20,7 +20,7 @@ export class PainterSelected implements Action {
 
 export class LoadPainters implements Action {
   readonly type = PaintersActionTypes.LoadPainters;
-  constrcutor() {}
+  constructor() {}
 }
 
 export class PaintersLoaded implements Action {
