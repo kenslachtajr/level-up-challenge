@@ -1,3 +1,4 @@
+import { PokemonService } from '@workspace/core-data';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,4 +8,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ngrx-pokemon';
+  poke;
+  constructor(private pokeService: PokemonService) {
+    this.poke = pokeService.get();
+  }
 }
