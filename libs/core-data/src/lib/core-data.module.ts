@@ -14,23 +14,25 @@ import { CitiesService } from './cities/cities.service';
 import { PaintersService } from './painters/painters.service';
 import { LiteratureService } from './literature/literature.service';
 import { HttpClientModule } from '@angular/common/http';
+import { PokemonService } from './pokemon/pokemon.service';
 
 @NgModule({
   imports: [CommonModule, HttpClientModule],
   providers: [
-    TodoService, 
-    EmployeesService, 
-    PizzaService, 
-    JazzService, 
-    ClientsService, 
-    StaffService, 
-    PgaService, 
-    DrugStoreService, 
-    ColorsService, 
+    TodoService,
+    EmployeesService,
+    PizzaService,
+    JazzService,
+    ClientsService,
+    StaffService,
+    PgaService,
+    DrugStoreService,
+    ColorsService,
     PianoBrandsService,
     CitiesService,
     PaintersService,
-    LiteratureService
+    LiteratureService,
+    PokemonService
   ],
   exports: [HttpClientModule]
 })
