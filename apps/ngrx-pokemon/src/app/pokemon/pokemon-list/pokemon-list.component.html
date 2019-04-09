@@ -1,3 +1,24 @@
-<p>
-  pokemon-list works!
-</p>
+<mat-card>
+  <mat-progress-bar *ngIf="isLoading" mode="indeterminate"></mat-progress-bar>
+  <mat-list>
+    <h3 mat-subheader>Pokemon Characters</h3>
+    <mat-list-item
+      class="mat-list-option"
+      *ngFor="let pokemon of pokemons"
+      (click)="selectPokemon(pokemon)"
+    >
+      <h4 mat-line><strong>Pokemon Name: </strong>{{ pokemon.name }}</h4>
+      <p mat-line>
+        <strong>Pokemon Base Experience: </strong>{{ pokemon.base_experience }}
+      </p>
+      <button
+        mat-mini-fab
+        color="accent"
+        class="mat-pseudo-checkbox"
+        (click)="deletePokemon(pokemon); $event.stopImmediatePropagation()"
+      >
+        <mat-icon> clear </mat-icon>
+      </button>
+    </mat-list-item>
+  </mat-list>
+</mat-card>

@@ -8,7 +8,7 @@ const routes: Route[] = [
   { path: '', redirectTo: '/literature', pathMatch: 'full' },
   { path: 'literature', component: LiteratureComponent },
   { path: 'login', component: LoginComponent },
-  { path: '', redirectTo: '/literature', pathMatch: 'full' }
+  { path: '**', redirectTo: '/literature', pathMatch: 'full' }
 ];
 
 @NgModule({

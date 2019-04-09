@@ -1,3 +1,60 @@
-<p>
-  pokemon-details works!
-</p>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Create/Edit Pokemon</mat-card-title>
+  </mat-card-header>
+  <form (submit)="savePokemon(group.value)" [formGroup]="group">
+    <mat-card-content>
+      <mat-form-field appearance="outline">
+        <mat-label>Pokemon Name</mat-label>
+        <input
+          formControlName="name"
+          matInput
+          type="text"
+          placeholder="Pokemon name"
+          name="pokemon name"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Base Experience</mat-label>
+        <input
+          formControlName="base_experience"
+          matInput
+          type="text"
+          placeholder="base experience"
+          name="experience"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Height</mat-label>
+        <input
+          formControlName="height"
+          matInput
+          type="text"
+          placeholder="Height"
+          name="height"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Weight</mat-label>
+        <input
+          formControlName="weight"
+          matInput
+          type="text"
+          placeholder="Weight"
+          name="weight"
+        />
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit">Submit</button>
+      <button
+        mat-raised-button
+        color="accent"
+        (click)="cancelled.emit()"
+        type="reset"
+      >
+        Cancel
+      </button>
+    </mat-card-actions>
+  </form>
+</mat-card>

@@ -10,6 +10,7 @@ import { AlbumsEffects } from './albums/albums.effects';
 import { CitiesEffects } from './cities/cities.effects';
 import { PaintersEffects } from './painters/painters.effects';
 import { LiteratureEffects } from './literature/literature.effects';
+import { PokemonEffects } from './pokemon/pokemon.effects';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { LiteratureEffects } from './literature/literature.effects';
       AlbumsEffects,
       CitiesEffects,
       PaintersEffects,
-      LiteratureEffects
+      LiteratureEffects,
+      PokemonEffects
     ]),
   ]
 })

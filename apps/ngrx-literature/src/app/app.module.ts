@@ -11,8 +11,8 @@ import { AppComponent } from './app.component';
 import { RoutingModule } from './routing.module';
 import { LoginComponent } from './login/login.component';
 import { LiteratureComponent } from './literature/literature.component';
-import { LiteratureDetailsComponent } from './literature/literature-details/literature-details.component';
 import { LiteratureListComponent } from './literature/literature-list/literature-list.component';
+import { LiteratureDetailsComponent } from './literature/literature-details/literature-details.component';
 import { CoreStateModule } from '@workspace/core-state';
 
 @NgModule({

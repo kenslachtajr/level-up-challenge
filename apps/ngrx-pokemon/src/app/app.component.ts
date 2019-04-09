@@ -1,4 +1,3 @@
-import { PokemonService } from '@workspace/core-data';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,9 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'ngrx-pokemon';
-  poke;
-  constructor(private pokeService: PokemonService) {
-    this.poke = pokeService.get();
-  }
+  title = 'Pokemon Characters';
+  links = [
+    { path: './login', icon: 'person', label: 'Login' },
+    { path: './pokemon', icon: 'loyalty', label: 'Pokemon' }
+  ];
 }

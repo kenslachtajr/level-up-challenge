@@ -33,7 +33,9 @@ export class LiteratureComponent implements OnInit {
 
   saveLiterature(literature: Literature) {
     if (this.form.valid) {
-      literature.id ? this.literatureFacade.updateLiterature(literature) : this.literatureFacade.addLiterature(literature);
+      literature.id 
+      ? this.literatureFacade.updateLiterature(literature) 
+      : this.literatureFacade.addLiterature(literature);
     }
   }
 

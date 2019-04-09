@@ -8,24 +8,28 @@ import * as fromAlbums from './albums/albums.reducer';
 import * as fromCities from './cities/cities.reducer';
 import * as fromPainters from './painters/painters.reducer';
 import * as fromLiterature from './literature/literature.reducer';
+import * as fromPokemon from './pokemon/pokemon.reducer';
 
 import { Album } from '@workspace/core-data';
 import { City } from '@workspace/core-data';
 import { Painter } from '@workspace/core-data';
 import { Literature } from '@workspace/core-data';
+import { Pokemon } from '@workspace/core-data';
 
 export interface AppState {
   albums: fromAlbums.AlbumsState;
   cities: fromCities.CitiesState;
   painters: fromPainters.PaintersState;
   literature: fromLiterature.LiteratureState;
+  pokemon: fromPokemon.PokemonState;
 }
 
 export const reducers: ActionReducerMap<AppState> = {
   albums: fromAlbums.albumsReducer,
   cities: fromCities.citiesReducer,
   painters: fromPainters.paintersReducer,
-  literature: fromLiterature.literatureReducer
+  literature: fromLiterature.literatureReducer,
+  pokemon: fromPokemon.pokemonReducer
 };
 
 // -------------------------------------------------------------------
@@ -215,5 +219,53 @@ export const selectCurrentLiterature = createSelector(
 
 export const selectLiteratureLoadingState = createSelector(
   selectLiteratureState,
+  state => state.loading
+);
+
+//pokemon selectors
+
+export const selectPokemonState = createFeatureSelector<
+  fromPokemon.PokemonState
+>('pokemon');
+
+export const selectPokemonIds = createSelector(
+  selectPokemonState,
+  fromPokemon.selectedPokemonIds
+);
+
+export const selectPokemonEntities = createSelector(
+  selectPokemonState,
+  fromPokemon.selectPokemonEntities
+);
+
+export const selectAllPokemon = createSelector(
+  selectPokemonState,
+  fromPokemon.selectAllPokemon
+);
+
+export const selectCurrentPokemonId = createSelector(
+  selectPokemonState,
+  fromPokemon.getSelectedPokemonId
+);
+
+export const emptyPokemon: Pokemon = {
+  id: null,
+  name: '',
+  url: '',
+  base_experience: null,
+  height: null,
+  weight: null
+};
+
+export const selectCurrentPokemon = createSelector(
+  selectPokemonEntities,
+  selectCurrentPokemonId,
+  (pokemonEntities, pokemonId) => {
+    return pokemonId ? pokemonEntities[pokemonId] : emptyPokemon;
+  }
+);
+
+export const selectPokemonLoadingState = createSelector(
+  selectPokemonState,
   state => state.loading
 );

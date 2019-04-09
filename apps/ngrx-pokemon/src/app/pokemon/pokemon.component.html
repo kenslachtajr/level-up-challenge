@@ -1,3 +1,19 @@
-<p>
-  pokemon works!
-</p>
+<div class="wrapper">
+  <div class="list-grid">
+    <workspace-pokemon-list
+      [pokemons]="pokemons$ | async"
+      [isLoading]="loading$ | async"
+      (selected)="selectPokemon($event)"
+      (deleted)="deletePokemon($event)"
+    >
+    </workspace-pokemon-list>
+  </div>
+  <div class="details-grid">
+    <workspace-pokemon-details
+      [group]="form"
+      (saved)="savePokemon($event)"
+      (cancelled)="reset()"
+    >
+    </workspace-pokemon-details>
+  </div>
+</div>
