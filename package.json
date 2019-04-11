@@ -24,6 +24,7 @@
     "deploy:ngrx-painters": "npm run build --project ngrx-painters && cp ./dist/apps/ngrx-painters/index.html ./dist/apps/ngrx-painters/200.html && surge ./dist/apps/ngrx-painters/ https://ngrx-painters.surge.sh",
     "deploy:ngrx-literature": "npm run build --project ngrx-literature && cp ./dist/apps/ngrx-literature/index.html ./dist/apps/ngrx-literature/200.html && surge ./dist/apps/ngrx-literature/ https://ngrx-literature.surge.sh",
     "deploy:ngrx-pokemon": "npm run build --project ngrx-pokemon && cp ./dist/apps/ngrx-pokemon/index.html ./dist/apps/ngrx-pokemon/200.html && surge ./dist/apps/ngrx-pokemon/ https://ngrx-pokemon.surge.sh",
+    "deploy:ngrx-star-wars": "npm run build --project ngrx-star-wars && cp ./dist/apps/ngrx-star-wars/index.html ./dist/apps/ngrx-star-wars/200.html && surge ./dist/apps/ngrx-star-wars/ https://ngrx-star-wars.surge.sh",
     "test": "ng test",
     "lint": "./node_modules/.bin/nx lint && ng lint",
     "e2e": "ng e2e",

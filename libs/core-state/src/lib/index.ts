@@ -9,12 +9,14 @@ import * as fromCities from './cities/cities.reducer';
 import * as fromPainters from './painters/painters.reducer';
 import * as fromLiterature from './literature/literature.reducer';
 import * as fromPokemon from './pokemon/pokemon.reducer';
+import * as fromStarWars from './star-wars/star-wars.reducer';
 
 import { Album } from '@workspace/core-data';
 import { City } from '@workspace/core-data';
 import { Painter } from '@workspace/core-data';
 import { Literature } from '@workspace/core-data';
 import { Pokemon } from '@workspace/core-data';
+import { StarWars } from '@workspace/core-data';
 
 export interface AppState {
   albums: fromAlbums.AlbumsState;
@@ -22,6 +24,7 @@ export interface AppState {
   painters: fromPainters.PaintersState;
   literature: fromLiterature.LiteratureState;
   pokemon: fromPokemon.PokemonState;
+  starWars: fromStarWars.StarWarsState;
 }
 
 export const reducers: ActionReducerMap<AppState> = {
@@ -29,7 +32,8 @@ export const reducers: ActionReducerMap<AppState> = {
   cities: fromCities.citiesReducer,
   painters: fromPainters.paintersReducer,
   literature: fromLiterature.literatureReducer,
-  pokemon: fromPokemon.pokemonReducer
+  pokemon: fromPokemon.pokemonReducer,
+  starWars: fromStarWars.starWarsReducer
 };
 
 // -------------------------------------------------------------------
@@ -267,5 +271,56 @@ export const selectCurrentPokemon = createSelector(
 
 export const selectPokemonLoadingState = createSelector(
   selectPokemonState,
+  state => state.loading
+);
+
+//star wars selectors
+
+export const selectStarWarsState = createFeatureSelector<
+  fromStarWars.StarWarsState
+>('pokemon');
+
+export const selectStarWarsIds = createSelector(
+  selectStarWarsState,
+  fromStarWars.selectedStarWarsIds
+);
+
+export const selectStarWarsEntities = createSelector(
+  selectStarWarsState,
+  fromStarWars.selectStarWarsEntities
+);
+
+export const selectAllStarWars = createSelector(
+  selectStarWarsState,
+  fromStarWars.selectAllStarWars
+);
+
+export const selectCurrentStarWarsId = createSelector(
+  selectStarWarsState,
+  fromStarWars.getSelectedStarWarsId
+);
+
+export const emptyStarWars: StarWars = {
+  id: null,
+    name: '',
+    gender: '',
+    height: null,
+    mass: null,
+    eye_color: '',
+    skin_color: '',
+    birth_year: '',
+    url: ''
+};
+
+export const selectCurrentStarWars = createSelector(
+  selectStarWarsEntities,
+  selectCurrentStarWarsId,
+  (starWarsEntities, starWarsId) => {
+    return starWarsId ? starWarsEntities[starWarsId] : emptyStarWars;
+  }
+);
+
+export const selectStarWarsLoadingState = createSelector(
+  selectStarWarsState,
   state => state.loading
 );

@@ -16,6 +16,7 @@ export { City } from './lib/cities/city.model';
 export { Painter } from './lib/painters/painter.model';
 export { Literature } from './lib/literature/literature.model';
 export { Pokemon } from './lib/pokemon/pokemon.model';
+export { StarWars } from './lib/star-wars/star-wars.model';
 
 export { TodoService } from './lib/todo/todo.service';
 export { EmployeesService } from './lib/employees/employees.service';
@@ -33,3 +34,4 @@ export { CitiesService } from './lib/cities/cities.service';
 export { PaintersService } from './lib/painters/painters.service';
 export { LiteratureService } from './lib/literature/literature.service';
 export { PokemonService } from './lib/pokemon/pokemon.service';
+export { StarWarsService } from './lib/star-wars/star-wars.service';

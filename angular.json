@@ -2157,6 +2157,124 @@
           }
         }
       }
+    },
+    "ngrx-star-wars": {
+      "root": "apps/ngrx-star-wars/",
+      "sourceRoot": "apps/ngrx-star-wars/src",
+      "projectType": "application",
+      "prefix": "workspace",
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "style": "sass"
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/ngrx-star-wars",
+            "index": "apps/ngrx-star-wars/src/index.html",
+            "main": "apps/ngrx-star-wars/src/main.ts",
+            "polyfills": "apps/ngrx-star-wars/src/polyfills.ts",
+            "tsConfig": "apps/ngrx-star-wars/tsconfig.app.json",
+            "assets": [
+              "apps/ngrx-star-wars/src/favicon.ico",
+              "apps/ngrx-star-wars/src/assets"
+            ],
+            "styles": ["apps/ngrx-star-wars/src/styles.scss"],
+            "scripts": [],
+            "es5BrowserSupport": true
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/ngrx-star-wars/src/environments/environment.ts",
+                  "with": "apps/ngrx-star-wars/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ngrx-star-wars:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ngrx-star-wars:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ngrx-star-wars:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/ngrx-star-wars/tsconfig.app.json",
+              "apps/ngrx-star-wars/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/builders:jest",
+          "options": {
+            "jestConfig": "apps/ngrx-star-wars/jest.config.js",
+            "tsConfig": "apps/ngrx-star-wars/tsconfig.spec.json",
+            "setupFile": "apps/ngrx-star-wars/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "ngrx-star-wars-e2e": {
+      "root": "apps/ngrx-star-wars-e2e",
+      "projectType": "application",
+      "prefix": "",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/builders:cypress",
+          "options": {
+            "cypressConfig": "apps/ngrx-star-wars-e2e/cypress.json",
+            "tsConfig": "apps/ngrx-star-wars-e2e/tsconfig.e2e.json",
+            "devServerTarget": "ngrx-star-wars:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ngrx-star-wars:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "apps/ngrx-star-wars-e2e/tsconfig.e2e.json",
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      }
     }
   },
   "cli": {

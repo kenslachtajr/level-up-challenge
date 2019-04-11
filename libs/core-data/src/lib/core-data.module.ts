@@ -15,6 +15,7 @@ import { PaintersService } from './painters/painters.service';
 import { LiteratureService } from './literature/literature.service';
 import { HttpClientModule } from '@angular/common/http';
 import { PokemonService } from './pokemon/pokemon.service';
+import { StarWarsService } from './star-wars/star-wars.service';
 
 @NgModule({
   imports: [CommonModule, HttpClientModule],
@@ -32,7 +33,8 @@ import { PokemonService } from './pokemon/pokemon.service';
     CitiesService,
     PaintersService,
     LiteratureService,
-    PokemonService
+    PokemonService,
+    StarWarsService
   ],
   exports: [HttpClientModule]
 })

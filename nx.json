@@ -124,6 +124,12 @@
     },
     "ngrx-pokemon-e2e": {
       "tags": []
+    },
+    "ngrx-star-wars": {
+      "tags": ["star-wars"]
+    },
+    "ngrx-star-wars-e2e": {
+      "tags": []
     }
   }
 }
