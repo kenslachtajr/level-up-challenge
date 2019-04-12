@@ -8,8 +8,16 @@ import { StarWarsDetailsComponent } from './star-wars/star-wars-details/star-war
 import { StarWarsListComponent } from './star-wars/star-wars-list/star-wars-list.component';
 
 @NgModule({
-  declarations: [AppComponent, StarWarsComponent, LoginComponent, StarWarsDetailsComponent, StarWarsListComponent],
-  imports: [BrowserModule],
+  declarations: [
+    AppComponent, 
+    StarWarsComponent, 
+    LoginComponent, 
+    StarWarsDetailsComponent, 
+    StarWarsListComponent
+  ],
+  imports: [
+    BrowserModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
