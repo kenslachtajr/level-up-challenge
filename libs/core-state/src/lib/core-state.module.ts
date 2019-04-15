@@ -11,6 +11,7 @@ import { CitiesEffects } from './cities/cities.effects';
 import { PaintersEffects } from './painters/painters.effects';
 import { LiteratureEffects } from './literature/literature.effects';
 import { PokemonEffects } from './pokemon/pokemon.effects';
+import { StarWarsEffects } from './star-wars/star-wars.effects';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { PokemonEffects } from './pokemon/pokemon.effects';
       CitiesEffects,
       PaintersEffects,
       LiteratureEffects,
-      PokemonEffects
+      PokemonEffects,
+      StarWarsEffects
     ]),
   ]
 })

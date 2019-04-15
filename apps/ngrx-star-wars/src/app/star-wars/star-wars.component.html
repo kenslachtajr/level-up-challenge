@@ -1,3 +1,19 @@
-<p>
-  star-wars works!
-</p>
+<div class="wrapper">
+  <div class="list-grid">
+    <workspace-star-wars-list
+      [starWars]="starWars$ | async"
+      [isLoading]="loading$ | async"
+      (selected)="selectStarWar($event)"
+      (deleted)="deleteStarWar($event)"
+    >
+    </workspace-star-wars-list>
+  </div>
+  <div class="details-grid">
+    <workspace-star-wars-details
+      [group]="form"
+      (saved)="saveStarWar($event)"
+      (cancelled)="reset()"
+    >
+    </workspace-star-wars-details>
+  </div>
+</div>

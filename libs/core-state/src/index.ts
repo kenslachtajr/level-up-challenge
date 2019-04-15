@@ -4,3 +4,4 @@ export { CitiesFacade } from './lib/cities/cities.facade';
 export { PaintersFacade } from './lib/painters/painters.facade';
 export { LiteratureFacade } from './lib/literature/literature.facade';
 export { PokemonFacade } from './lib/pokemon/pokemon.facade';
+export { StarWarsFacade } from './lib/star-wars/star-wars.facade';

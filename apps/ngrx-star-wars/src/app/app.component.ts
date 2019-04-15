@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'ngrx-star-wars';
+  title = 'Star Wars Characters';
+  links = [
+    { path: './login', icon: 'person', label: 'Login' },
+    { path: './star-wars', icon: 'loyalty', label: 'Star Wars' }
+  ];
 }

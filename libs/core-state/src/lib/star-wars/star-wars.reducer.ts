@@ -1,7 +1,7 @@
 import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
 import { StarWars } from '@workspace/core-data';
 
-import { StarWarsActions, StarWarsActionTypes } from './star-wars.actions';
+import { StarWarsActions, StarWarsActionTypes, StarWarsLoaded } from './star-wars.actions';
 
 export interface StarWarsState extends EntityState<StarWars> {
     selectedStarWarsId: number | null;
@@ -28,6 +28,10 @@ export function starWarsReducer(
                 ...state,
                 loading: true
             };
+        }
+
+        case StarWarsActionTypes.StarWarsLoaded: {
+            return adapter.addAll(action.payload, { ...state, loading: false })
         }
 
         case StarWarsActionTypes.CreateStarWars: {

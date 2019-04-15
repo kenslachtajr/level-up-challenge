@@ -35,27 +35,27 @@ export class CreateStarWars implements Action {
 
 export class StarWarsCreated implements Action {
     readonly type = StarWarsActionTypes.StarWarsCreated;
-    constructor(public payload: StarWarsCreated) {}
+    constructor(public payload: StarWars) {}
 }
 
 export class UpdateStarWars implements Action {
     readonly type = StarWarsActionTypes.UpdateStarWars;
-    constructor(public payload: UpdateStarWars) {}
+    constructor(public payload: StarWars) {}
 }
 
 export class StarWarsUpdated implements Action {
     readonly type = StarWarsActionTypes.StarWarsUpdated;
-    constructor(public payload: StarWarsUpdated) {}
+    constructor(public payload: StarWars) {}
 }
 
 export class DeleteStarWars implements Action {
     readonly type = StarWarsActionTypes.DeleteStarWars;
-    constructor(public payload: DeleteStarWars) {}
+    constructor(public payload: StarWars) {}
 }
 
 export class StarWarsDeleted implements Action {
     readonly type = StarWarsActionTypes.StarWarsDeleted;
-    constructor(public payload: StarWarsDeleted) {}
+    constructor(public payload: StarWars) {}
 }
 
 export type StarWarsActions = 
