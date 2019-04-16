@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { Observable, forkJoin } from 'rxjs';
-import { map, mergeMap } from 'rxjs/operators';
+import { map, mergeMap, tap } from 'rxjs/operators';
 
 import { StarWars } from './star-wars.model';
 
@@ -22,7 +22,8 @@ export class StarWarsService {
       ),
       map((res: StarWars[]) =>
         res.map((starWar: StarWars) => this.stripStarWarsProperties(starWar))
-      )
+      ),
+      tap((res: any) => console.log('STRIP PROPERTIES', res))
     );
   }
 

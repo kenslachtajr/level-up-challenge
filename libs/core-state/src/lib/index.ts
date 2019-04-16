@@ -278,7 +278,7 @@ export const selectPokemonLoadingState = createSelector(
 
 export const selectStarWarsState = createFeatureSelector<
   fromStarWars.StarWarsState
->('pokemon');
+>('starWars');
 
 export const selectStarWarsIds = createSelector(
   selectStarWarsState,
